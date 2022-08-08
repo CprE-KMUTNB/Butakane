@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learning MERN stack
+          Learning MERN
         </a>
       </header>
     </div>
