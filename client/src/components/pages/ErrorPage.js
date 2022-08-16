@@ -1,13 +1,14 @@
 import '../css/page.css'
 
-const Home = () => {
+const ErrorPage = () => {
   return (
     <div className="wrapper">
       <div className="container">
-        <h1>Home</h1>
+        <h1>ErrorPage</h1>
       </div>
     </div>
+    
   )
 }
 
-export default Home
+export default ErrorPage

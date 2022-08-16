@@ -1,6 +1,12 @@
+import '../css/page.css'
+
 const Wallet = () => {
   return (
-    <div>Wallet</div>
+    <div className="wrapper">
+      <div className="container">
+        <h1>Wallet</h1>
+      </div>
+    </div>
   )
 }
 
