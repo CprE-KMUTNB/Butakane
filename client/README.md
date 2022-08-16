@@ -1,4 +1,4 @@
-#ButaKANE Piggy Bank Project
+# ButaKANE PiggyBank Project
 
 # Getting Started with Create React App
 
