@@ -1,0 +1,46 @@
+.wallet-page {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    position: absolute;
+    margin-top: 100px;
+}
+
+aside {
+    width: 200px;
+    background: #012A32;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+}
+
+.side-item {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.side-text {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.side-text:hover {
+    background: #024B5A;
+    border-radius: 10px;
+}
+
+.wallet-content-page {
+    height: 100vh;
+    width: 100%;
+    background: #023A46;
+}
+
+.wallet-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

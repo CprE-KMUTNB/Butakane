@@ -14,8 +14,8 @@ const Navbar = () => {
                 <div className="nav-menu">
                     <ul className="nav-menu-item">
                         <li className="menu-text"><Link to="/">Home</Link></li>
-                        <li className="menu-text"><Link to="/wallet">Wallet</Link></li>
-                        <li className="menu-text"><Link to="/aboutus">About us</Link></li>
+                        <li className="menu-text"><Link to="/Wallet">Wallet</Link></li>
+                        <li className="menu-text"><Link to="/Aboutus">About us</Link></li>
                     </ul>
                 </div>
                 <div className="nav-user">

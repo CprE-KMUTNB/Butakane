@@ -1,11 +1,14 @@
 import '../css/page.css'
+import '../css/wallet.css'
+import Sidebar from '../Sidebar'
+import { Outlet } from 'react-router-dom'
 
 const Wallet = () => {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <h1>Wallet</h1>
-      </div>
+    <div className="wallet-page">
+      <Sidebar />
+      <Outlet />
+
     </div>
   )
 }
