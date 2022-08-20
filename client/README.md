@@ -2,6 +2,6 @@
 
 ## Developer
 
-This frontend's project was creted by [Sirasit Phongwankul](https://shiraf.net)
+This frontend's project was creted by <a href='https://shiraf.net' target='_blank'>Sirasit Phongwankul</a>
 
-This backend's project was creted by [Nonthawat Doypinit](https://lysist.shiraf.net)
+This backend's project was creted by <a href='https://lysist.shiraf.net' target='_blank'>Nonthawat Doypinit</a>
