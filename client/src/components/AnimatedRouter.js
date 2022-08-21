@@ -9,20 +9,24 @@ import Overview from './pages/Wallets/Overview';
 import MyGoal from './pages/Wallets/MyGoal';
 import MyDept from './pages/Wallets/MyDept';
 
+import { AnimatePresence } from "framer-motion"
+
 
 const NavRouter = () => {
   return (
-    <Routes>
+    <AnimatePresence>
+      <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="Wallet" element={<Wallet/>} >
             <Route path="/Wallet" element={<Navigate to="Overview" />} />
             <Route path="Overview" element={<Overview />} />
             <Route path="MyDept" element={<MyDept />} />
             <Route path="MyGoal" element={<MyGoal />} />
-          </Route>
+            </Route>
           <Route path="Aboutus" element={<AboutUs/>} />
           <Route path="*" element={<ErrorPage/>} />
-    </Routes>
+      </Routes>
+    </AnimatePresence>
   )
 }
 

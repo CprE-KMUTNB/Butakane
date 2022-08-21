@@ -1,8 +1,10 @@
 import { Card, Grid, Text, Link } from "@nextui-org/react";
 import '../css/page.css'
+import AnimatedPage from "../AnimatedPage";
 
 const AboutUs = () => {
   return (
+    <AnimatedPage>
     <div className="wrapper">
     <Card css={{ p: "$6", mw: "600px" }}>
       <Card.Header>
@@ -24,8 +26,8 @@ const AboutUs = () => {
         </Grid.Container>
       </Card.Header>
       <Card.Body css={{ py: "$2" }}>
-        <Text>Front-End Developer => Sirasit Phongsuwankul</Text>
-        <Text>Back-End Developer => Nonthawat Doypinit</Text>
+        <Text>Front-End Developer : Sirasit Phongsuwankul</Text>
+        <Text>Back-End Developer : Nonthawat Doypinit</Text>
         <Text>Good Luck Have Fun For Hell!</Text>
       </Card.Body>
       <Card.Footer>
@@ -40,6 +42,7 @@ const AboutUs = () => {
       </Card.Footer>
     </Card>
     </div>
+    </AnimatedPage>
   );
 }
 

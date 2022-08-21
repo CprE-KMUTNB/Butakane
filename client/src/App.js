@@ -5,7 +5,7 @@ import { createTheme, NextUIProvider } from "@nextui-org/react"
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 import Navbar from './components/Navbar';
-import NavRouter from './components/NavRouter';
+import AnimatedRouter from './components/AnimatedRouter'
 
 
 
@@ -42,7 +42,7 @@ function App() {
       <Router>
         <Navbar/>
         
-        <NavRouter />
+        <AnimatedRouter />
 
       </Router>
     </NextUIProvider>
