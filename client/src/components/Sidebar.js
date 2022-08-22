@@ -4,9 +4,9 @@ const Sidebar = () => {
   return (
     <aside>
         <ul className="side-item">
-            <li className="side-text"><Link to="Overview">Overview</Link></li>
-            <li className="side-text"><Link to="MyDept">MyDept</Link></li>
-            <li className="side-text"><Link to="MyGoal">MyGoal</Link></li>
+            <li ><Link to="Overview" className="side-text">Overview</Link></li>
+            <li><Link to="MyDept" className="side-text">MyDept</Link></li>
+            <li><Link to="MyGoal" className="side-text">MyGoal</Link></li>
         </ul>
     </aside>
   )
