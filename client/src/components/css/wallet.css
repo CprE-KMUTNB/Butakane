@@ -7,8 +7,8 @@
 }
 
 aside {
-    width: 200px;
-    background: #012A32;
+    width: 300px;
+    background: #242526;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,20 +22,21 @@ aside {
 }
 
 .side-text {
-    padding: 10px;
+    font-size: 1.2rem;
+    padding: 20px;
     display: flex;
     justify-content: center;
 }
 
 .side-text:hover {
-    background: #024B5A;
+    background: #3A3B3C;
     border-radius: 10px;
 }
 
 .wallet-content-page {
     height: 100vh;
     width: 100%;
-    background: #023A46;
+    background: #3A3B3C;
 }
 
 .wallet-content {
