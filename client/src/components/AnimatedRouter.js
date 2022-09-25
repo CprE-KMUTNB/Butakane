@@ -7,7 +7,7 @@ import ErrorPage from './pages/ErrorPage';
 
 import Overview from './pages/Wallets/Overview';
 import MyGoal from './pages/Wallets/MyGoal';
-import MyDept from './pages/Wallets/MyDept';
+import MyDebt from './pages/Wallets/MyDebt';
 
 import { AnimatePresence } from "framer-motion"
 
@@ -20,7 +20,7 @@ const NavRouter = () => {
           <Route path="Wallet" element={<Wallet/>} >
             <Route path="/Wallet" element={<Navigate to="Overview" />} />
             <Route path="Overview" element={<Overview />} />
-            <Route path="MyDept" element={<MyDept />} />
+            <Route path="MyDebt" element={<MyDebt />} />
             <Route path="MyGoal" element={<MyGoal />} />
             </Route>
           <Route path="Aboutus" element={<AboutUs/>} />

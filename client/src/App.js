@@ -14,7 +14,7 @@ const lightTheme = createTheme({
   theme: {
     colors: {background: '#fff',
     text: '#000',
-    link: '#000'}
+    link: '#000',}
   }
 })
 
@@ -23,7 +23,7 @@ const darkTheme = createTheme({
   theme: {
     colors: {background: '#18191A',
     text: '#fff',
-    link: '#fff'}
+    link: '#fff',}
   }
 })
 

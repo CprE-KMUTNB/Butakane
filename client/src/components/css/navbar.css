@@ -1,11 +1,9 @@
 nav {
     display: flex;
     justify-content: center;
-    background: #18191A;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* backdrop-filter: saturate(180%) blur(10px); */
+
     width: 100%;
-    height: px;
+    
     position: fixed;
     z-index: 9999;
     transition: .3s;
@@ -22,8 +20,14 @@ nav {
     height: 100px;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar .logo {
-    margin: 2rem;
+    margin: 1rem;
     font-size: 2rem;
     font-weight: 1000;
     letter-spacing: 2px;
@@ -31,7 +35,7 @@ nav {
 }
 
 .logo-buta {
-    color: #33D9FA;
+    color: #2D86FF;
 }
 
 .nav-menu {
@@ -66,6 +70,9 @@ nav {
     align-items: center;
 }
 .user-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     margin: 0px;
 }
