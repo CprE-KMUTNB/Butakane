@@ -45,7 +45,7 @@ const Navbar = () => {
                     <ul className="nav-user-item">
                         <li className="user-menu">
                             <Switch
-                                // disabled
+                                disabled
                                 size="lg"
                                 checked={isDark}
                                 iconOn={<SunIcon filled />}

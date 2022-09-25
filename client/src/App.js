@@ -2,51 +2,53 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import './App.css';
 import { createTheme, NextUIProvider } from "@nextui-org/react"
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+// import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 import Navbar from './components/Navbar';
 import AnimatedRouter from './components/AnimatedRouter'
 
 
 
-const lightTheme = createTheme({
-  type: 'light',
-  theme: {
-    colors: {background: '#fff',
-    text: '#000',
-    link: '#000',}
-  }
-})
+// const lightTheme = createTheme({
+//   type: 'light',
+//   theme: {
+//     colors: {background: '#fff',
+//     text: '#000',
+//     link: '#000',
+//     myDarkColor: '#ff4ecd'}
+//   }
+// })
 
 const darkTheme = createTheme({
   type: 'dark',
   theme: {
     colors: {background: '#18191A',
     text: '#fff',
-    link: '#fff',}
+    link: '#fff',
+    myDarkColor: '#ff4ecd'}
   }
 })
 
-function App() {
-  
-  return (
-    <NextThemesProvider
-    defaultTheme="system"
-    attribute="class"
-    value={{
-      light: lightTheme.className,
-      dark: darkTheme.className
-    }}
-    >
-    <NextUIProvider>
-      <Router>
-        <Navbar/>
-        
-        <AnimatedRouter />
 
+
+function App() {
+
+  return (
+    // <NextThemesProvider
+    // defaultTheme="system"
+    // attribute="class"
+    // value={{
+    //   light: lightTheme.className,
+    //   dark: darkTheme.className
+    // }}
+    // >
+    <NextUIProvider theme={darkTheme}>
+      <Router>  
+        <Navbar/>
+        <AnimatedRouter />
       </Router>
     </NextUIProvider>
-  </NextThemesProvider>
+  // </NextThemesProvider>
 
   );
 }
