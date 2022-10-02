@@ -1,16 +1,12 @@
-import { NavLink } from "react-router-dom"
-import { FaGlobe, FaCoins, FaTrophy } from "react-icons/fa";
+import { Link } from "react-router-dom"
 
 const Sidebar = () => {
-    let LinkActive = {
-      background: "#3A3B3C",
-    }; 
   return (
     <aside>
         <ul className="side-item">
-            <li><NavLink to="Overview" className="side-text" style={({ isActive }) => isActive ? LinkActive : undefined}><FaGlobe className="FontIcon" /><span>Overview</span></NavLink></li>
-            <li><NavLink to="MyDebt" className="side-text" style={({ isActive }) => isActive ? LinkActive : undefined}><FaCoins className="FontIcon" /><span>MyDebt</span></NavLink></li>
-            <li><NavLink to="MyGoal" className="side-text" style={({ isActive }) => isActive ? LinkActive : undefined}><FaTrophy className="FontIcon" /><span>MyGoal</span></NavLink></li>
+            <li ><Link to="Overview" className="side-text">Overview</Link></li>
+            <li><Link to="MyDept" className="side-text">MyDept</Link></li>
+            <li><Link to="MyGoal" className="side-text">MyGoal</Link></li>
         </ul>
     </aside>
   )

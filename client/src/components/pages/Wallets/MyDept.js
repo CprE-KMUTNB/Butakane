@@ -1,13 +1,13 @@
 import '../../css/wallet.css'
 
-const MyDebt = () => {
+const MyDept = () => {
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
-        <div>MyDebt</div>
+        <div>MyDept</div>
       </div>
     </div>
   )
 }
 
-export default MyDebt
+export default MyDept

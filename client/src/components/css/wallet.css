@@ -6,10 +6,6 @@
     margin-top: 100px;
 }
 
-.FontIcon {
-    margin-right: 0.5rem;
-}
-
 aside {
     width: 300px;
     background: #242526;
@@ -21,7 +17,7 @@ aside {
 }
 
 .side-item {
-    margin: 10px;
+    margin-top: 20px;
     width: 100%;
 }
 
@@ -30,7 +26,6 @@ aside {
     padding: 20px;
     display: flex;
     justify-content: center;
-    border-radius: 10px;
 }
 
 .side-text:hover {
@@ -49,19 +44,4 @@ aside {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-@media screen and (max-width: 1000px) {
-
-    aside {
-        width: 80px;
-    }
-
-    .side-text span {
-        display: none;
-    }
-
-    .FontIcon {
-        margin-right: 0rem;
-    }
 }
