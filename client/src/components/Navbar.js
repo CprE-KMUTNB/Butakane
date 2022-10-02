@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import './css/navbar.css';
 import LoginButton from './LoginButton';
+import RegisterButton from './RegisterButton';
 import { FaBars } from "react-icons/fa";
 import { useTheme as useNextTheme } from 'next-themes'
 import { Switch, useTheme, Badge } from '@nextui-org/react'
@@ -54,6 +55,7 @@ const Navbar = () => {
                             /></li>
                         {/* <li className="user-menu mode-toggle"><FaSun className="fontawesome" /></li> */}
                         <li className="user-menu"><LoginButton /></li>
+                        <li className="user-menu"><RegisterButton /></li>
                     </ul>
                 </div>
 
