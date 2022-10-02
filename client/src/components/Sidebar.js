@@ -5,7 +5,7 @@ const Sidebar = () => {
     <aside>
         <ul className="side-item">
             <li ><Link to="Overview" className="side-text">Overview</Link></li>
-            <li><Link to="MyDept" className="side-text">MyDept</Link></li>
+            <li><Link to="MyDebt" className="side-text">MyDebt</Link></li>
             <li><Link to="MyGoal" className="side-text">MyGoal</Link></li>
         </ul>
     </aside>
