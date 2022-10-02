@@ -3,7 +3,7 @@ import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./LoginButton/Mail";
 import { Password } from "./LoginButton/Password";
 
-const LoginButton = () => {
+const RegButton = () => {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -12,8 +12,8 @@ const LoginButton = () => {
   };
   return (
     <div>
-      <Button auto flat color="success" onClick={handler}>
-        ลงชื่อเข้าใช้
+      <Button auto flat color="gradient" onClick={handler}>
+        สมัครสมาชิก
       </Button>
       <Modal
         closeButton
@@ -66,4 +66,4 @@ const LoginButton = () => {
   );
 }
 
-export default LoginButton
+export default RegButton

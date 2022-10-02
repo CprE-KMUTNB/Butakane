@@ -1,17 +1,11 @@
 nav {
     display: flex;
     justify-content: center;
-<<<<<<< HEAD
     background: #18191A;
     /* background: rgba(0, 0, 0, 0.5); */
     /* backdrop-filter: saturate(180%) blur(10px); */
     width: 100%;
-    height: px;
-=======
-
-    width: 100%;
-    
->>>>>>> parent of e3f2307 (DarkTheme Beta)
+    height: 100px;
     position: fixed;
     z-index: 9999;
     transition: .3s;
@@ -72,14 +66,7 @@ nav {
     align-items: center;
 }
 .user-menu {
-<<<<<<< HEAD
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 5px;
-=======
-    padding: 20px;
->>>>>>> parent of 3393b7c (Home - Switch Mode)
     margin: 0px;
 }
 

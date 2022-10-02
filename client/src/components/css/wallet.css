@@ -6,6 +6,10 @@
     margin-top: 100px;
 }
 
+.FontIcon {
+    margin-right: 0.5rem;
+}
+
 aside {
     width: 300px;
     background: #242526;
@@ -17,13 +21,18 @@ aside {
 }
 
 .side-item {
-    margin-top: 20px;
+    margin: 10px;
     width: 100%;
 }
 
-.side-text {
+.side-item a {
+    border-radius: 10px;
     font-size: 1.2rem;
-    padding: 20px;
+    margin: 10px;
+}
+
+.side-text {
+    padding: 10px;
     display: flex;
     justify-content: center;
 }
@@ -44,4 +53,19 @@ aside {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+@media screen and (max-width: 1000px) {
+
+    aside {
+        width: 60px;
+    }
+
+    .side-text span {
+        display: none;
+    }
+
+    .FontIcon {
+        margin-right: 0rem;
+    }
 }
