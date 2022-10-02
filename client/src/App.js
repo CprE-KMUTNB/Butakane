@@ -14,7 +14,11 @@ const lightTheme = createTheme({
   theme: {
     colors: {background: '#fff',
     text: '#000',
+<<<<<<< HEAD
     link: '#000'}
+=======
+    link: '#000',}
+>>>>>>> parent of e3f2307 (DarkTheme Beta)
   }
 })
 
@@ -23,7 +27,11 @@ const darkTheme = createTheme({
   theme: {
     colors: {background: '#18191A',
     text: '#fff',
+<<<<<<< HEAD
     link: '#fff'}
+=======
+    link: '#fff',}
+>>>>>>> parent of e3f2307 (DarkTheme Beta)
   }
 })
 

@@ -29,7 +29,20 @@ const Navbar = () => {
                 </div>
                 <div className="nav-user">
                     <ul className="nav-user-item">
+<<<<<<< HEAD
                         <li className="user-menu mode-toggle"><FaSun className="fontawesome" /></li>
+=======
+                        <li className="user-menu">
+                            <Switch
+                                // disabled
+                                size="lg"
+                                checked={isDark}
+                                iconOn={<SunIcon filled />}
+                                iconOff={<MoonIcon filled />}
+                                onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+                            /></li>
+                        {/* <li className="user-menu mode-toggle"><FaSun className="fontawesome" /></li> */}
+>>>>>>> parent of e3f2307 (DarkTheme Beta)
                         <li className="user-menu"><LoginButton /></li>
                         <li className="user-menu"><RegisterButton /></li>
                     </ul>
