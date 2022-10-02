@@ -2,6 +2,10 @@
     color: #2D86FF;
 }
 
+h1, h2, h3, h4, h5, p {
+    color: #fff;
+  }
+
 .op-50-text {
     /* color: rgba(255, 255, 255, 0.5); */
     opacity: 50%;
