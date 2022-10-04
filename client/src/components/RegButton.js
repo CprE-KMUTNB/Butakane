@@ -8,6 +8,12 @@ import { useNavigate } from "react-router-dom";
 
 const RegButton = (props) => {
 
+  const handleChange = () => { 
+    
+    console.log('The checkbox was toggled'); 
+    
+  }; 
+
   const navigate = useNavigate()
   const [state, setState] = useState({
     username: "",
@@ -102,7 +108,7 @@ const RegButton = (props) => {
             contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
-            <Checkbox>
+            <Checkbox onChange={handleChange}>
               <Text size={14}>จำฉันไว้</Text>
             </Checkbox>
             <Text size={14}>ลืมรหัสผ่าน?</Text>

@@ -1,8 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
+import { Button } from '@nextui-org/react'
 import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
-import { FaSun, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -32,6 +33,9 @@ const Navbar = () => {
                         {/* <li className="user-menu mode-toggle"><FaSun className="fontawesome" /></li> */}
                         <li className="user-menu"><LoginButton /></li>
                         <li className="user-menu"><RegButton /></li>
+                        <li className="user-menu">
+                            <Button shadow color="error" auto>ลงชื่อออก</Button>
+                        </li>
                     </ul>
                 </div>
 
