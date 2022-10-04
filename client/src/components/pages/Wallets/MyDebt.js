@@ -4,7 +4,7 @@ const MyDebt = () => {
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
-        <div>MyDept</div>
+        <div>MyDebt</div>
       </div>
     </div>
   )

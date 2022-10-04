@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
-import { UserIcon } from "./LoginButton/UserIcon";
-import { Password } from "./LoginButton/Password";
+import { UserIcon } from "./AuthIcon/UserIcon";
+import { Password } from "./AuthIcon/Password";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { authenticate, localAuthenticate } from "../services/authorize";
@@ -55,7 +55,6 @@ const LoginButton = () => {
   }
   
   
-
 
   return (
     <div>

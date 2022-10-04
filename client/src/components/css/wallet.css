@@ -94,6 +94,14 @@ aside {
     height: 130px;
     background: #333;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-balance p {
+    opacity: 70%;
 }
 
 .items-wallet-action {
@@ -118,6 +126,13 @@ aside {
     height: 90px;
     background: #5D7B6F;
     border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    touch-action: manipulation;
+}
+
+.item-wallet-income:hover {
+    background: #6e9183;
 }
 
 .item-wallet-outcome {
@@ -125,6 +140,13 @@ aside {
     height: 90px;
     background: #EF5C76;
     border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    touch-action: manipulation;
+}
+
+.item-wallet-outcome:hover {
+    background: #c04e61;
 }
 
 .item-mydebt {
