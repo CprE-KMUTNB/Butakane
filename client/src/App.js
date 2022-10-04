@@ -2,7 +2,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import './App.css';
 import { createTheme, NextUIProvider } from "@nextui-org/react"
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 import Navbar from './components/Navbar';
 import AnimatedRouter from './components/AnimatedRouter'

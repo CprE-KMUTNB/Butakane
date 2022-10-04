@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const RegButton = (props) => {
 
+  const [checked, setChecked] = useState(false); 
   const handleChange = () => { 
     
-    console.log('The checkbox was toggled'); 
+    setChecked(!checked); 
     
   }; 
 
