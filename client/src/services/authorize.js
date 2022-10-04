@@ -24,11 +24,11 @@ export const getToken=()=>{
 
 export const getUser=()=>{
     if(window !== "undefined"){
-        if(sessionStorage.getItem("user")){
-            return JSON.parse(sessionStorage.getItem("user"))
+        if(sessionStorage.getItem("username")){
+            return JSON.parse(sessionStorage.getItem("username"))
         }
-        else if(localStorage.getItem("user")){
-            return JSON.parse(localStorage.getItem("user"))
+        else if(localStorage.getItem("username")){
+            return JSON.parse(localStorage.getItem("username"))
         }
         else{
             return false

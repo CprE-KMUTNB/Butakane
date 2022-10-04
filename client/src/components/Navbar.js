@@ -53,7 +53,7 @@ const Navbar = () => {
                         {
                             isLoggedIn() && (
                                 <li className="user-menu">
-                                    <h3>{getUser}</h3>
+                                    <h3>{getUser()}</h3>
                                 </li>
                             )
                         }
