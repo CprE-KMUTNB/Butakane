@@ -38,10 +38,10 @@ const RegButton = (props) => {
           axios
           .post(`${process.env.REACT_APP_API}/login`,{ username, password })
           .then(response => {
-            if(checked){
-              authenticate(response,()=>navigate("/Wallet"))
-            }else{
+            if(checked===true){
               localAuthenticate(response,()=>navigate("/Wallet"))
+            }else{
+              authenticate(response,()=>navigate("/Wallet"))
             }
 
             setState({ ...state, username: "", password: "", confirmPass: "" })
