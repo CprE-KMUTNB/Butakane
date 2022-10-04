@@ -56,3 +56,11 @@ export const clearLocal=()=>{
         }
     }
 }
+
+export const isLoggedIn = () =>{
+    if(getToken || getTokenLocal){
+      return true
+    }else{
+      return false
+    }
+}
