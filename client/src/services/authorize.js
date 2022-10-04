@@ -22,7 +22,11 @@ export const getUser=()=>{
     if(window !== "undefined"){
         if(sessionStorage.getItem("user")){
             return JSON.parse(sessionStorage.getItem("user"))
-        }else{
+        }
+        else if(localStorage.getItem("token")){
+            return JSON.parse(localStorage.getItem("token"))
+        }
+        else{
             return false
         }
     }
@@ -41,16 +45,6 @@ export const getTokenLocal=()=>{
     if(window !== "undefined"){
         if(localStorage.getItem("token")){
             return JSON.parse(localStorage.getItem("token"))
-        }else{
-            return false
-        }
-    }
-}
-
-export const getUserLocal=()=>{
-    if(window !== "undefined"){
-        if(localStorage.getItem("user")){
-            return JSON.parse(localStorage.getItem("user"))
         }else{
             return false
         }
