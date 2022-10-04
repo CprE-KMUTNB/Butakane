@@ -1,6 +1,7 @@
 import { Card, Grid, Text, Link } from "@nextui-org/react";
 import '../css/page.css'
 import AnimatedPage from "../AnimatedPage";
+import kafImg from '../assets/kaf3-1.png'
 
 const AboutUs = () => {
   return (
@@ -10,7 +11,8 @@ const AboutUs = () => {
       <Card.Header>
         <img
           alt="nextui logo"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+          // src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+          src={kafImg}
           width="50px"
           height="50px"
         />

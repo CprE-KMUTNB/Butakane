@@ -1,6 +1,9 @@
 import '../../css/wallet.css'
+import { Progress } from "@nextui-org/react";
 
 const Overview = () => {
+
+  let myGoalPg = 55;
 
   return (
     <div className="wallet-content-page">
@@ -17,7 +20,9 @@ const Overview = () => {
                   <div className="item-mydebt"></div>
                 </div>
               </div>
-              <div className="overview-area-item-2"></div>
+              <div className="overview-area-item-2">
+                <Progress color="primary" value={myGoalPg} />
+              </div>
               <div className="overview-area-item-3"></div>
             </div>
           </div>
