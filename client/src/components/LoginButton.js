@@ -9,6 +9,7 @@ import { authenticate, localAuthenticate } from "../services/authorize";
 
 const LoginButton = () => {
 
+
   const [state, setState] = React.useState({
     username: "",
     password: ""
@@ -44,14 +45,15 @@ const LoginButton = () => {
       }else{
         authenticate(response,()=>navigate("/Wallet"))
       }
+      setVisible(false);
+      console.log("closed");
 
       setState({ ...state, username: "", password: "" })
     })
     .catch(err => {
-      console.log(err);
+      console.log("error");
     })
-    setVisible(false);
-    console.log("closed");
+
   }
   
   
