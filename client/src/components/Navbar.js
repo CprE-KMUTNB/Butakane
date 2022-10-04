@@ -18,6 +18,8 @@ const Navbar = () => {
         clearSession()
         navigate('/')
     }
+
+
   return (
     <nav>
         <div className="nav-container">
@@ -47,7 +49,15 @@ const Navbar = () => {
                             !isLoggedIn() && (
                                 <li className="user-menu"><RegButton /></li>
                             )
-                        }{
+                        }
+                        {
+                            isLoggedIn() && (
+                                <li className="user-menu">
+                                    <h3></h3>
+                                </li>
+                            )
+                        }
+                        {
                             isLoggedIn() && (
                                 <li className="user-menu">
                                     <Button shadow color="error" auto onClick={logOut}>ลงชื่อออก</Button>
