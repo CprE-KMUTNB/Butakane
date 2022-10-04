@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Button } from '@nextui-org/react'
+import { Button, Text, Spacer } from '@nextui-org/react'
 import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
@@ -52,8 +52,8 @@ const Navbar = () => {
                         }
                         {
                             isLoggedIn() && (
-                                <li className="user-menu">
-                                    <h3>{getUser()}</h3>
+                                <li className="user-menu username-text">
+                                    <Text color="#fff">สวัสดี {getUser()} !</Text>
                                 </li>
                             )
                         }
