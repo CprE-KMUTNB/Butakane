@@ -17,3 +17,42 @@ export const getToken=()=>{
         }
     }
 }
+
+export const localAuthenticate=(response,next)=>{
+    if(window !=="undefined"){ //access to website
+        //store a token to session storage
+        localStorage.setItem("token",JSON.stringify(response.data.token))
+        localStorage.setItem("username",JSON.stringify(response.data.userName))
+    }
+    next()
+}
+
+export const getTokenLocal=()=>{
+    if(window !== "undefined"){
+        if(localStorage.getItem("token")){
+            return JSON.parse(localStorage.getItem("token"))
+        }else{
+            return false
+        }
+    }
+}
+
+export const clearSession=()=>{
+    if(window !== "undefined"){
+        if(sessionStorage.getItem("token")){
+            sessionStorage.clear()
+        }else{
+            return false
+        }
+    }
+}
+
+export const clearLocal=()=>{
+    if(window !== "undefined"){
+        if(localStorage.getItem("token")){
+            localStorage.clear()
+        }else{
+            return false
+        }
+    }
+}
