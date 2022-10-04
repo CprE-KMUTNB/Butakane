@@ -18,6 +18,16 @@ export const getToken=()=>{
     }
 }
 
+export const getUser=()=>{
+    if(window !== "undefined"){
+        if(sessionStorage.getItem("user")){
+            return JSON.parse(sessionStorage.getItem("user"))
+        }else{
+            return false
+        }
+    }
+}
+
 export const localAuthenticate=(response,next)=>{
     if(window !=="undefined"){ //access to website
         //store a token to session storage
@@ -31,6 +41,16 @@ export const getTokenLocal=()=>{
     if(window !== "undefined"){
         if(localStorage.getItem("token")){
             return JSON.parse(localStorage.getItem("token"))
+        }else{
+            return false
+        }
+    }
+}
+
+export const getUserLocal=()=>{
+    if(window !== "undefined"){
+        if(localStorage.getItem("user")){
+            return JSON.parse(localStorage.getItem("user"))
         }else{
             return false
         }
