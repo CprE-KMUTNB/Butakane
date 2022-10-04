@@ -3,7 +3,8 @@ import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./LoginButton/Mail";
 import { Password } from "./LoginButton/Password";
 import axios from 'axios'
-import {authenticate} from '../services/authorize'
+import { authenticate,localAuthenticate } from '../services/authorize'
+
 import { useNavigate } from "react-router-dom";
 
 const RegButton = (props) => {
@@ -11,7 +12,11 @@ const RegButton = (props) => {
   const [checked, setChecked] = useState(false); 
   const handleChange = () => { 
     
-    setChecked(!checked); 
+    if(checked){
+      setChecked(false)
+    }else{
+      setChecked(true)
+    }
     
   }; 
 
@@ -37,7 +42,12 @@ const RegButton = (props) => {
           axios
           .post(`${process.env.REACT_APP_API}/login`,{ username, password })
           .then(response => {
-            authenticate(response,()=>navigate("/Wallet"))
+            if(checked){
+              localAuthenticate(response,()=>navigate("/Wallet"))
+            }else{
+              authenticate(response,()=>navigate("/Wallet"))
+            }
+
             setState({ ...state, username: "", password: "", confirmPass: "" })
           })
           .catch(err => {
@@ -112,7 +122,7 @@ const RegButton = (props) => {
             <Checkbox onChange={handleChange}>
               <Text size={14}>จำฉันไว้</Text>
             </Checkbox>
-            <Text size={14}>ลืมรหัสผ่าน?</Text>
+            {/* <Text size={14}>ลืมรหัสผ่าน?</Text> */}
           </Row>
         </Modal.Body>
         <Modal.Footer>
