@@ -4,7 +4,7 @@ import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
 import { FaBars } from "react-icons/fa";
-import { clearLocal, clearSession, isLoggedIn } from '../services/authorize';
+import { clearLocal, clearSession, isLoggedIn, getUser } from '../services/authorize';
 
 const Navbar = () => {
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                         {
                             isLoggedIn() && (
                                 <li className="user-menu">
-                                    <h3></h3>
+                                    <h3>{getUser}</h3>
                                 </li>
                             )
                         }
