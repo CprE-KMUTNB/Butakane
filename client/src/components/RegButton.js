@@ -112,7 +112,7 @@ const RegButton = (props) => {
             <Checkbox onChange={handleChange}>
               <Text size={14}>จำฉันไว้</Text>
             </Checkbox>
-            <Text size={14}>ลืมรหัสผ่าน?</Text>
+            <Text size={14}>ลืมรหัสผ่าน??</Text>
           </Row>
         </Modal.Body>
         <Modal.Footer>
