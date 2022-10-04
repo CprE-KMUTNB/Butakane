@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
-import { Mail } from "./LoginButton/Mail";
+import { UserIcon } from "./LoginButton/UserIcon";
 import { Password } from "./LoginButton/Password";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -83,7 +83,7 @@ const LoginButton = () => {
             placeholder="ชื่อผู้ใช้"
             value={username}
             onChange={inputValue("username")}
-            contentLeft={<Mail fill="currentColor" />}
+            contentLeft={<UserIcon fill="currentColor" />}
           />
           <Input.Password
             clearable
