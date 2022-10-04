@@ -9,15 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 const RegButton = (props) => {
 
-  const [checked, setChecked] = useState(false); 
+  const [checked, setChecked] = useState(true); 
   const handleChange = () => { 
     
-    if(checked){
-      setChecked(false)
-    }else{
-      setChecked(true)
-    }
-    
+    setChecked(!checked); 
+    console.log({checked});
   }; 
 
   const navigate = useNavigate()
