@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Button, Text, Spacer } from '@nextui-org/react'
+import { Button, Text } from '@nextui-org/react'
 import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
@@ -30,11 +30,30 @@ const Navbar = () => {
                 <div className="nav-menu">
                     <ul className="nav-menu-item">
                         <li className="menu-text">
-                            <NavLink to="/" style={({ isActive }) => isActive ? LinkActive : undefined} >Home</NavLink></li>
+                            <NavLink to="/" style={({ isActive }) => isActive ? LinkActive : undefined} >Home</NavLink>
+                        </li>
+                        {
+                            !isLoggedIn() && (
+                                <li className="menu-text">
+                                    <NavLink to="#" className="notAllowPointer" style={{opacity:"30%"}}>Wallet</NavLink>
+                                </li> 
+                            )
+                        }
+                        {
+                            isLoggedIn() && (
+                                <li className="menu-text">
+                                    <NavLink to="/Wallet" style={({ isActive }) => isActive ? LinkActive : undefined} >Wallet</NavLink>
+                                </li>
+                            )
+                        }
+
+                        {/* <li className="menu-text">
+                            <NavLink to="/Wallet" style={({ isActive }) => isActive ? LinkActive : undefined} >Wallet</NavLink>
+                        </li> */}
+                        
                         <li className="menu-text">
-                            <NavLink to="/Wallet" style={({ isActive }) => isActive ? LinkActive : undefined} >Wallet</NavLink></li>
-                        <li className="menu-text">
-                            <NavLink to="/Aboutus" style={({ isActive }) => isActive ? LinkActive : undefined}>About us</NavLink></li>
+                            <NavLink to="/Aboutus" style={({ isActive }) => isActive ? LinkActive : undefined}>About us</NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="nav-user">
