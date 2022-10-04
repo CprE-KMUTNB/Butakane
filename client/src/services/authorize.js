@@ -12,7 +12,11 @@ export const getToken=()=>{
     if(window !== "undefined"){
         if(sessionStorage.getItem("token")){
             return JSON.parse(sessionStorage.getItem("token"))
-        }else{
+        }
+        else if(localStorage.getItem("token")){
+            return JSON.parse(localStorage.getItem("token"))
+        }
+        else{
             return false
         }
     }
@@ -23,8 +27,8 @@ export const getUser=()=>{
         if(sessionStorage.getItem("user")){
             return JSON.parse(sessionStorage.getItem("user"))
         }
-        else if(localStorage.getItem("token")){
-            return JSON.parse(localStorage.getItem("token"))
+        else if(localStorage.getItem("user")){
+            return JSON.parse(localStorage.getItem("user"))
         }
         else{
             return false
