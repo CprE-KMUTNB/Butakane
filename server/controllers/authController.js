@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 
 exports.register=(req,res)=>{
 
-    var {username,password} = req.body
+    var {username,password,confirmPass} = req.body
 
     switch(true){
         case !username:{
@@ -13,6 +13,10 @@ exports.register=(req,res)=>{
         }
         case !password:{
             return res.status(400).json({error:"Please enter your password"})
+            break;
+        }
+        case password!=confirmPass:{
+            return res.status(400).json({error:"Password doesn't match"})
             break;
         }
     }
