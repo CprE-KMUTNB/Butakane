@@ -4,7 +4,7 @@ import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
 import { FaBars } from "react-icons/fa";
-import { clearLocal, clearSession } from '../services/authorize';
+import { clearLocal, clearSession, isLoggedIn } from '../services/authorize';
 
 const Navbar = () => {
 
@@ -38,11 +38,23 @@ const Navbar = () => {
                 <div className="nav-user">
                     <ul className="nav-user-item">
                         {/* <li className="user-menu mode-toggle"><FaSun className="fontawesome" /></li> */}
-                        <li className="user-menu"><LoginButton /></li>
-                        <li className="user-menu"><RegButton /></li>
-                        <li className="user-menu">
-                            <Button shadow color="error" auto onClick={logOut}>ลงชื่อออก</Button>
-                        </li>
+                        {
+                            !isLoggedIn() && (
+                                <li className="user-menu"><LoginButton /></li>   
+                            )
+                        }
+                        {
+                            !isLoggedIn() && (
+                                <li className="user-menu"><RegButton /></li>
+                            )
+                        }{
+                            isLoggedIn() && (
+                                <li className="user-menu">
+                                    <Button shadow color="error" auto onClick={logOut}>ลงชื่อออก</Button>
+                                </li>
+                            )
+                        }
+                        
                     </ul>
                 </div>
 

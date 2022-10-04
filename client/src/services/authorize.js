@@ -58,7 +58,7 @@ export const clearLocal=()=>{
 }
 
 export const isLoggedIn = () =>{
-    if(getToken || getTokenLocal){
+    if((localStorage.getItem("token")) || (sessionStorage.getItem("token"))){
       return true
     }else{
       return false
