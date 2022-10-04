@@ -34,7 +34,7 @@ const LoginButton = () => {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="Email"
+            placeholder="ชื่อผู้ใช้"
             contentLeft={<Mail fill="currentColor" />}
           />
           <Input.Password
@@ -43,7 +43,7 @@ const LoginButton = () => {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="Password"
+            placeholder="รหัสผ่าน"
             contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">

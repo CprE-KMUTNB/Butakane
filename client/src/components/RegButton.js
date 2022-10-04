@@ -52,7 +52,7 @@ const RegButton = () => {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="รหัสผ่าน"
+            placeholder="ยืนยันรหัสผ่าน"
             contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
