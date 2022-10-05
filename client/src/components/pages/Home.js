@@ -12,10 +12,8 @@ const Home = () => {
           <div className="Home-box">
             <div className="Home-left-box">
               <div className="far-left-box">
-                <h2>If you use <span className='blue-text'>Butakane</span>,</h2>
-                <h2>but you don’t have <span className='blue-text'>honesty</span>.</h2>
-                <h2>It’ll be <span className='blue-text'>useless</span>.</h2>
-                <p className="op-50-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, mollitia.</p>
+                <h1>รู้หมือไร่ว่า <span className='blue-text'>Butakane</span> คืออะไร?</h1>
+                <p className="op-50-text">Butakane คือ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores veritatis in recusandae sit iure mollitia commodi nihil doloremque libero minima vitae fugit maxime, consequuntur quod excepturi eligendi eum nesciunt temporibus.</p>
                 <div className="Home-button-box">
                     <Button shadow color="gradient">
                       ลองใช้เลย !
