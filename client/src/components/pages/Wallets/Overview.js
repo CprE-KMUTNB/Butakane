@@ -4,6 +4,7 @@ import { Progress, Text } from "@nextui-org/react";
 import { getToken } from '../../../services/authorize';
 import IncomeModal from '../../IncomeModal';
 import OutcomeModal from '../../OutcomeModal';
+import Neko from '../../assets/neko_tsukareta2.png'
 import axios from 'axios';
 
 const Overview = () => {
@@ -64,7 +65,9 @@ const Overview = () => {
                     <OutcomeModal />
                     {/* <button className="item-wallet-outcome"></button> */}
                   </div>
-                  <div className="item-mydebt">MyDebt</div>
+                  <div className="item-sticker">
+                    <img src={Neko} alt="Neko" />
+                  </div>
                 </div>
               </div>
               <div className="overview-area-item-2">

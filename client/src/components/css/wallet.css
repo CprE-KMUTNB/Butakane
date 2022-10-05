@@ -149,10 +149,13 @@ aside {
     background: #c04e61;
 }
 
-.item-mydebt {
+.item-sticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 48%;
     height: 200px;
-    background: #9543A7;
+    /* background: #9543A7; */
     border-radius: 10px;
 }
 
