@@ -1,7 +1,9 @@
 const express = require("express")
-const { getWalletInfo } = require("../controllers/walletController")
+const { getWalletInfo, income, outcome } = require("../controllers/walletController")
 const router = express.Router()
 
 router.get('/wallet',getWalletInfo)
+router.put('/income',income)
+router.put('/outcome',outcome)
 
 module.exports = router

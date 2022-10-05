@@ -7,8 +7,8 @@ const inAndOutSchema = mongoose.Schema({
         type:String,
         require:true
     },
-    amout:{
-        type:Number,
+    amount:{
+        type:String,
         require:true
     },
     type:{
