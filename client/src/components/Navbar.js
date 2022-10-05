@@ -18,7 +18,7 @@ const Navbar = () => {
         clearSession()
         navigate('/')
     }
-
+    
 
   return (
     <nav>

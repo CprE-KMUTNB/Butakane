@@ -91,3 +91,15 @@ exports.outcome=(req,res)=>{
         })
     }
 }
+
+exports.getMoneyData=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+
+        moneydata.find({id}).exec((err,data)=>{
+            res.json(data)
+        })
+    }
+}

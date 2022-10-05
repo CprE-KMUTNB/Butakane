@@ -10,23 +10,41 @@ const Overview = () => {
 
   let myGoalPg = 55;
 
+  const [info,setInfo] = React.useState([])
+
   const [wallet,setWallet] = React.useState([])
   const token = getToken()
+
+  const type = (t) =>{
+    if(t===true){return "รายรับ"}
+  }
   const fetchData = ()=>{
+
     axios
-    .get(`${process.env.REACT_APP_API}/wallet`,{
+    .get(`${process.env.REACT_APP_API}/wallet`,
+    {
       headers:{
         'Authorization':token
         }
-    
     })
     .then(response=>{
       setWallet(response.data[0].balance)
-      
-      
     })
     .catch(err=>alert(err))
-    }
+
+    axios
+    .get(`${process.env.REACT_APP_API}/moneyinfo`,
+    {
+      headers:{
+        'Authorization':token
+        }
+    })
+    .then(response=>{
+      setInfo(response.data)
+    })
+    .catch(err=>alert(err))
+
+  }
   React.useEffect(()=>{
     fetchData()// eslint-disable-next-line
   },[])
@@ -63,22 +81,47 @@ const Overview = () => {
           <div className="detail-title">
             <Text size="$xl">รายการ</Text>
           </div>
-
-          <div className="detail-lists">
-            <div className="des-detail-list">
-              <Text size={20}>รายรับ - Lorem ipsum dolor sit amet.</Text>
-            </div>
+        {info.map((data,index)=>(
+          <div className="detail-lists" key={index}>
+            {
+              data.type && (
+                <div className="des-detail-list">
+                  <Text size={20}>รายรับ - {data.detail}</Text>
+                </div>
+              )
+            }
+            {
+              !(data.type) && (
+                <div className="des-detail-list">
+                  <Text size={20}>รายจ่าย - {data.detail}</Text>
+                </div>
+              )
+            }
             <div className="amount-detail-list">
               <div className="amount-detail-lists">
-                <div className="amount-detail">
-                  <Text size={30} color="success">+200</Text>
-                </div>
+                {
+                  data.type && (
+                    <div className="amount-detail">
+                      <Text size={30} color="success">+ {data.amount}</Text>
+                    </div>
+                  )
+                }
+                {
+                  !(data.type) && (
+                    <div className="amount-detail">
+                      <Text size={30} color="error">- {data.amount}</Text>
+                    </div>
+                  )
+                }
+                
                 <div className="timestamp-detail">
-                  <Text>11/8/2022 - 18:35</Text>
+                  <Text>{new Date(data.createdAt).toLocaleString()}</Text>
                 </div>
               </div>
             </div>
           </div>
+        ))}
+          
           
       </div>
     </div>

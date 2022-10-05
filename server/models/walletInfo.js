@@ -11,7 +11,6 @@ const walletSchema = mongoose.Schema({
         type:String,
         require:true
     }
-
 },{timestamps:true})
 
 module.exports = mongoose.model("walletdata",walletSchema)
