@@ -79,6 +79,13 @@ const Navbar = () => {
                         {
                             isLoggedIn() && (
                                 <li className="user-menu">
+                                    <Button color="error" auto ghost>ลบบัญชี</Button>
+                                </li>
+                            )
+                        }
+                        {
+                            isLoggedIn() && (
+                                <li className="user-menu">
                                     <Button shadow color="error" auto onClick={logOut}>ลงชื่อออก</Button>
                                 </li>
                             )
