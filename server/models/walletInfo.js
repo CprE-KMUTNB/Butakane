@@ -8,7 +8,7 @@ const walletSchema = mongoose.Schema({
         require:true
     },
     balance:{
-        type:Number,
+        type:String,
         require:true
     }
 

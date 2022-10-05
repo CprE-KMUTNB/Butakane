@@ -33,7 +33,7 @@ exports.register=(req,res)=>{
                 }
                 var idStr = JSON.stringify(data._id)
                 var id = JSON.parse(idStr)
-                var balance = 0
+                var balance = '0'
                 walletdata.create({id,balance},(err,data)=>{
                     if(err){
                         res.status(400).json({err})

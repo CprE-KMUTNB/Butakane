@@ -1,12 +1,35 @@
 import React from 'react';
 import '../../css/wallet.css'
 import { Progress } from "@nextui-org/react";
+import { getToken } from '../../../services/authorize';
+import axios from 'axios';
 
 const Overview = () => {
 
   let myGoalPg = 55;
 
-  const walletBalance = "99,999";
+  const [wallet,setWallet] = React.useState([])
+  const token = getToken()
+  const fetchData = ()=>{
+    axios
+    .get(`${process.env.REACT_APP_API}/wallet`,{
+      headers:{
+        'Authorization':token
+        }
+    
+    })
+    .then(response=>{
+      setWallet(response.data[0].balance)
+      
+      
+    })
+    .catch(err=>alert(err))
+    }
+  React.useEffect(()=>{
+    fetchData()// eslint-disable-next-line
+  },[])
+
+  const walletBalance = wallet;
 
   return (
     <div className="wallet-content-page">

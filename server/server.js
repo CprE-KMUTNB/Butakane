@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 require("dotenv").config()
 
 const authRoute = require("./routes/authentication")
-
+const walletRoute = require("./routes/wallet")
 
 const app = express()
 
@@ -29,6 +29,7 @@ app.use(morgan("dev"))
 
 //route
 app.use('/api',authRoute)
+app.use('/api',walletRoute)
 
 const port = process.env.PORT || 8080
 app.listen(port,()=>{
