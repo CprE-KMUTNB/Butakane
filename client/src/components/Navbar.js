@@ -3,7 +3,7 @@ import { Button, Text } from '@nextui-org/react'
 import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
-import { FaBars } from "react-icons/fa";
+// import { FaBars } from "react-icons/fa";
 import { clearLocal, clearSession, isLoggedIn, getUser } from '../services/authorize';
 
 const Navbar = () => {
@@ -94,9 +94,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to="#" className="menu-bar">
+                {/* <Link to="#" className="menu-bar">
                     <FaBars />
-                </Link>
+                </Link> */}
 
             </div>
         </div>
