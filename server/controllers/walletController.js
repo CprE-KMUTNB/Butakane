@@ -19,7 +19,7 @@ exports.getWalletInfo=(req,res)=>{
 exports.income=(req,res)=>{
     const token = req.headers.authorization
     var userinfo = jwt.decode(token)
-    const { amount } = req.body
+    const { amount ,detail } = req.body
     if(userinfo){
         var id = userinfo.userID
         const type = true
@@ -31,7 +31,7 @@ exports.income=(req,res)=>{
             }
         }
 
-        moneydata.create({id,amount,type},(err,data)=>{
+        moneydata.create({id,amount,type,detail},(err,data)=>{
             if(err){
                 res.status(400).json({error:err})
                 console.log(err);
@@ -57,7 +57,7 @@ exports.income=(req,res)=>{
 exports.outcome=(req,res)=>{
     const token = req.headers.authorization
     var userinfo = jwt.decode(token)
-    const { amount } = req.body
+    const { amount,detail } = req.body
     if(userinfo){
         var id = userinfo.userID
         const type = false
@@ -69,7 +69,7 @@ exports.outcome=(req,res)=>{
             }
         }
 
-        moneydata.create({id,amount,type},(err,data)=>{
+        moneydata.create({id,amount,type,detail},(err,data)=>{
             if(err){
                 res.status(400).json({error:err})
                 console.log(err);

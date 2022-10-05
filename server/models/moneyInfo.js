@@ -14,7 +14,11 @@ const inAndOutSchema = mongoose.Schema({
     type:{
         type:Boolean,
         require:true
+    },
+    detail:{
+        type:String
     }
+
 
 },{timestamps:true})
 
