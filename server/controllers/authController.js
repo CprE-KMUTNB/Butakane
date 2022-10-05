@@ -1,4 +1,5 @@
 const usersdata = require("../models/authInfo")
+const walletdata = require("../models/walletInfo")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
@@ -30,9 +31,16 @@ exports.register=(req,res)=>{
                 if(err){
                     res.status(400).json({error:"Username has been used"})
                 }
-                res.json(data)
-        
-            })
+                var idStr = JSON.stringify(data._id)
+                var id = JSON.parse(idStr)
+                var balance = 0
+                walletdata.create({id,balance},(err,data)=>{
+                    if(err){
+                        res.status(400).json({err})
+                    }
+                    res.status(200).json(data)
+                })
+             })
         })
     })
 }
