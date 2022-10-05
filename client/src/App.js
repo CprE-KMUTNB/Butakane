@@ -24,9 +24,7 @@ function App() {
     <NextUIProvider theme={darkTheme}>
       <Router>
         <Navbar/>
-        
         <AnimatedRouter />
-
       </Router>
     </NextUIProvider>
 

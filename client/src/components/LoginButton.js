@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
-import { UserIcon } from "./AuthIcon/UserIcon";
-import { Password } from "./AuthIcon/Password";
+import { UserIcon } from "./userIcon/UserIcon";
+import { Password } from "./userIcon/Password";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { authenticate, localAuthenticate } from "../services/authorize";
