@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Modal, Input, Button, Text } from "@nextui-org/react";
 import { WalletIcon } from './userIcon/WalletIcon';
 import { DetailsIcon } from "./userIcon/DetailsIcon"

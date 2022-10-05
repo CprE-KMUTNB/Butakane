@@ -15,9 +15,9 @@ const Overview = () => {
   const [wallet,setWallet] = React.useState([])
   const token = getToken()
 
-  const type = (t) =>{
-    if(t===true){return "รายรับ"}
-  }
+  // const type = (t) =>{
+  //   if(t===true){return "รายรับ"}
+  // }
   const fetchData = ()=>{
 
     axios
