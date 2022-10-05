@@ -235,4 +235,11 @@ aside {
         margin-top: 250px;
     }
 
+    .wallet-content {
+        width: 95%;
+    }
+
+    .detail-lists {
+        padding: 20px;
+    }
 }

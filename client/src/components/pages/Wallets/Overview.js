@@ -82,14 +82,14 @@ const Overview = () => {
             {
               data.type && (
                 <div className="des-detail-list">
-                  <Text size={20}>รายรับ - {data.detail}</Text>
+                  <Text size="$lg">รายรับ - {data.detail}</Text>
                 </div>
               )
             }
             {
               !(data.type) && (
                 <div className="des-detail-list">
-                  <Text size={20}>รายจ่าย - {data.detail}</Text>
+                  <Text size="$lg">รายจ่าย - {data.detail}</Text>
                 </div>
               )
             }
@@ -98,14 +98,14 @@ const Overview = () => {
                 {
                   data.type && (
                     <div className="amount-detail">
-                      <Text size={30} color="success">+ {data.amount}</Text>
+                      <Text size="$xl" color="success">+ {data.amount}</Text>
                     </div>
                   )
                 }
                 {
                   !(data.type) && (
                     <div className="amount-detail">
-                      <Text size={30} color="error">- {data.amount}</Text>
+                      <Text size="$xl" color="error">- {data.amount}</Text>
                     </div>
                   )
                 }
