@@ -14,10 +14,6 @@ const Overview = () => {
 
   const [wallet,setWallet] = React.useState([])
   const token = getToken()
-
-  const type = (t) =>{
-    if(t===true){return "รายรับ"}
-  }
   const fetchData = ()=>{
 
     axios
@@ -81,7 +77,7 @@ const Overview = () => {
           <div className="detail-title">
             <Text size="$xl">รายการ</Text>
           </div>
-        {info.map((data,index)=>(
+        {info.reverse().map((data,index)=>(
           <div className="detail-lists" key={index}>
             {
               data.type && (
