@@ -11,7 +11,7 @@ const Overview = () => {
 
   let myGoalPg = 55;
 
-  const [info,setInfo] = React.useState([])
+  var [info,setInfo] = React.useState([])
 
   const [wallet,setWallet] = React.useState([])
   const token = getToken()
@@ -80,7 +80,7 @@ const Overview = () => {
           <div className="detail-title">
             <Text size="$xl">รายการ</Text>
           </div>
-        {info.reverse().map((data,index)=>(
+        {info.slice(0).reverse().map((data,index)=>(
           <div className="detail-lists" key={index}>
             {
               data.type && (
