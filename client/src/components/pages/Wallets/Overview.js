@@ -101,7 +101,7 @@ const Overview = () => {
                 {
                   data.type && (
                     <div className="amount-detail">
-                      <span size="$xl" color="success">+ {data.amount}</span>
+                      <Text size="$xl" color="success">+ {data.amount}</Text>
                     </div>
                   )
                 }
