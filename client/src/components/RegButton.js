@@ -36,23 +36,24 @@ const RegButton = (props) => {
         .post(`${process.env.REACT_APP_API}/reg`, { username, password, confirmPass })
         .then(response => {
           axios
-          .post(`${process.env.REACT_APP_API}/login`,{ username, password })
-          .then(response => {
-            if(checked===true){
-              localAuthenticate(response,()=>navigate("/Wallet"))
-            }else{
-              authenticate(response,()=>navigate("/Wallet"))
-            }
+            .post(`${process.env.REACT_APP_API}/login`,{ username, password })
+            .then(response => {
+              if(checked===true){
+                localAuthenticate(response,()=>navigate("/Wallet"))
+              }else{
+                authenticate(response,()=>navigate("/Wallet"))
+              }
 
-            setState({ ...state, username: "", password: "", confirmPass: "" })
-          })
-          .catch(err => {
-            console.log(err);
-          })
+              setState({ ...state, username: "", password: "", confirmPass: "" })
+            })
+            .catch(err => {
+              console.log(err);
+            })
         })
         .catch(err => {
           console.log(err);
         })
+    
     setVisible(false);
     console.log("closed");
   }

@@ -17,8 +17,10 @@ const NavRouter = () => {
     <AnimatePresence>
       <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/Debt" element={<Navigate to="/Wallet/MyDebt" />} />
           <Route path="Wallet" element={<Wallet/>} >
             <Route path="/Wallet" element={<Navigate to="Overview" />} />
+            
             <Route path="Overview" element={<Overview />} />
             <Route path="MyDebt" element={<MyDebt />} />
             <Route path="MyGoal" element={<MyGoal />} />

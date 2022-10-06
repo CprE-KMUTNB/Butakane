@@ -2,8 +2,49 @@ import '../../css/wallet.css'
 import { Text } from '@nextui-org/react'
 import BorrowModal from '../../BorrowModal'
 import LendModal from '../../LendModal'
+import React from 'react'
+import axios from 'axios'
+import { getToken } from '../../../services/authorize'
 
 const MyDebt = () => {
+
+  var [info,setInfo] = React.useState([])
+  const [borrow,setBorrow] = React.useState()
+  const [lend,setLend] = React.useState()
+  const token = getToken()
+  const fetchData =()=>{
+    axios.get(`${process.env.REACT_APP_API}/borrowInfo`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setBorrow(response.data[0].balance)
+    }).catch(err=>alert(err))
+
+    axios.get(`${process.env.REACT_APP_API}/lendInfo`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setLend(response.data[0].balance)
+    }).catch(err=>alert(err))
+    axios
+    .get(`${process.env.REACT_APP_API}/debtInfo`,
+    {
+      headers:{
+        'Authorization':token
+        }
+    })
+    .then(response=>{
+      setInfo(response.data)
+    })
+    .catch(err=>alert(err))
+  }
+  React.useEffect(()=>{
+    fetchData()// eslint-disable-next-line
+  },[])
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
@@ -13,11 +54,11 @@ const MyDebt = () => {
               <div className="debt-balance">
                 <div className="borrow-balance">
                   <p>Borrow - Balance</p>
-                  <h2>999</h2>
+                  <h2>{borrow}</h2>
                 </div>
                 <div className="lend-balance">
                   <p>Lend - Balance</p>
-                  <h2>999</h2>
+                  <h2>{lend}</h2>
                 </div>
               </div>
               <div className="debt-button">
@@ -30,22 +71,52 @@ const MyDebt = () => {
         <div className="detail-title">
           <span>รายการ</span>
         </div>
-
-        <div className="detail-lists">
-          <div className="des-detail-list">
-              <span>ยืมเงินจาก USER1 - Lorem ipsum dolor sit amet.</span>
-          </div>
-          <div className="amount-detail-list">
-            <div className="amount-detail-lists">
-              <div className="amount-detail">
-                <Text size="$xl" color="success">+ 200</Text>
-              </div>
-              <div className="timestamp-detail">
-                  <Text>6/10/2565</Text>
+        {info.slice(0).reverse().map((data,index)=>(
+          <div className="detail-lists" key={index}>
+            {
+              data.type && (
+                <div className="des-detail-list">
+                  <span>ให้ {data.name} ยืมเงิน - {data.detail}</span>
+                </div>
+              )
+            }
+            {
+              !(data.type) && (
+                <div className="des-detail-list">
+                  <span>ยืมเงินจาก {data.name} - {data.detail}</span>
+                </div>
+              )
+            }
+            <div className="amount-detail-list">
+              <div className="amount-detail-lists">
+                {
+                  data.type && (
+                    <div className="amount-detail">
+                      <Text size="$xl" color="error">- {data.amount}</Text>
+                    </div>
+                  )
+                }
+                {
+                  !(data.type) && (
+                    <div className="amount-detail">
+                      <Text size="$xl" color="success">+ {data.amount}</Text>
+                    </div>
+                  )
+                }
+                
+                <div className="timestamp-detail">
+                  <Text>{new Date(data.createdAt).toLocaleString()}</Text>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
+
+
+
+
+
+        
 
 
       </div>

@@ -1,5 +1,8 @@
 const walletdata = require("../models/walletInfo")
 const moneydata = require("../models/moneyInfo")
+const debtdata = require("../models/debtInfo")
+const borrowdata = require("../models/borrowInfo")
+const lenddata = require("../models/lendInfo")
 const jwt = require("jsonwebtoken")
 
 exports.getWalletInfo=(req,res)=>{
@@ -9,6 +12,32 @@ exports.getWalletInfo=(req,res)=>{
     if(userinfo){
         var id = userinfo.userID
         walletdata.find({id}).exec((err,data)=>{
+            res.json(data)
+        })
+
+    }
+}
+
+exports.getBorrowInfo=(req,res)=>{
+
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        borrowdata.find({id}).exec((err,data)=>{
+            res.json(data)
+        })
+
+    }
+}
+
+exports.getLendInfo=(req,res)=>{
+
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        lenddata.find({id}).exec((err,data)=>{
             res.json(data)
         })
 
@@ -101,5 +130,94 @@ exports.getMoneyData=(req,res)=>{
         moneydata.find({id}).exec((err,data)=>{
             res.json(data)
         })
+    }
+}
+
+exports.getDebtData=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        debtdata.find({id}).exec((err,data)=>{
+            res.json(data)
+        })
+    }
+}
+
+exports.borrow=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { name,amount,detail } = req.body
+    if(userinfo){
+        var id = userinfo.userID
+        const type = false
+
+        switch(true){
+            case !amount:{
+                return res.status(400).json({error:"Please enter your amount of money"})
+                break;
+            }
+            case !name:{
+                return res.status(400).json({error:"Please enter name of loaner"})
+                break;
+            }
+        }
+
+        debtdata.create({id,name,amount,detail,type},(err,data)=>{
+            if(err){
+                res.status(400).json({error:err})
+                console.log(err);
+            }
+            res.json(data)
+        })
+        borrowdata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].balance)
+            balanceInt = balanceInt + parseInt(amount)
+            var balance = String(balanceInt)
+            borrowdata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })        
+
+    }
+}
+
+exports.lend=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { name,amount,detail } = req.body
+    if(userinfo){
+        var id = userinfo.userID
+        const type = true
+
+        switch(true){
+            case !amount:{
+                return res.status(400).json({error:"Please enter your amount of money"})
+                break;
+            }
+            case !name:{
+                return res.status(400).json({error:"Please enter name of loaner"})
+                break;
+            }
+        }
+
+        debtdata.create({id,name,amount,detail,type},(err,data)=>{
+            if(err){
+                res.status(400).json({error:err})
+                console.log(err);
+            }
+            res.json(data)
+        })   
+        lenddata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].balance)
+            balanceInt = balanceInt + parseInt(amount)
+            var balance = String(balanceInt)
+            lenddata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })       
+
     }
 }

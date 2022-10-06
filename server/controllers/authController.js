@@ -1,5 +1,7 @@
 const usersdata = require("../models/authInfo")
 const walletdata = require("../models/walletInfo")
+const borrowdata = require("../models/borrowInfo")
+const lenddata = require("../models/lendInfo")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
@@ -38,7 +40,19 @@ exports.register=(req,res)=>{
                     if(err){
                         res.status(400).json({err})
                     }
-                    res.status(200).json(data)
+                    res.json(data)
+                })
+                borrowdata.create({id,balance},(err,data)=>{
+                    if(err){
+                        res.status(400).json({err})
+                    }
+                    
+                })
+                lenddata.create({id,balance},(err,data)=>{
+                    if(err){
+                        res.status(400).json({err})
+                    }
+                    
                 })
              })
         })
