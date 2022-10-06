@@ -6,6 +6,7 @@ import React from 'react'
 import axios from 'axios'
 import { getToken } from '../../../services/authorize'
 import { useNavigate } from 'react-router-dom'
+import { WalletIcon } from '../../userIcon/WalletIcon'
 
 const MyDebt = () => {
 
@@ -130,11 +131,11 @@ const MyDebt = () => {
             <div className="debt-area-items">
               <div className="debt-balance">
                 <div className="borrow-balance">
-                  <p>Borrow - Balance</p>
+                  <p>จำนวนเงินที่ยืม</p>
                   <h2>{borrow}</h2>
                 </div>
                 <div className="lend-balance">
-                  <p>Lend - Balance</p>
+                  <p>จำนวนเงินที่ให้ยืม</p>
                   <h2>{lend}</h2>
                 </div>
               </div>
@@ -153,6 +154,10 @@ const MyDebt = () => {
             {
               data.type && (
                 <div className="des-detail-list">
+                  {
+                  data.type && (
+                    <Button className="check-button" color="success" auto rounded ghost onClick={()=>receiveBack(data._id,data.amount)}><WalletIcon />ได้รับคืนแล้ว</Button>
+                  )}
                   <span>ให้ {data.name} ยืมเงิน - {data.detail}</span>
                 </div>
               )
@@ -160,6 +165,11 @@ const MyDebt = () => {
             {
               !(data.type) && (
                 <div className="des-detail-list">
+                  {
+                    !(data.type) && (
+                        <Button className="check-button" color="success" auto rounded ghost onClick={()=>payBack(data._id,data.amount)}><WalletIcon />คืนเงินแล้ว</Button>
+                    )
+                  }
                   <span>ยืมเงินจาก {data.name} - {data.detail}</span>
                 </div>
               )
@@ -184,20 +194,6 @@ const MyDebt = () => {
                 <div className="timestamp-detail">
                   <Text>{new Date(data.createdAt).toLocaleString()}</Text>
                 </div>
-                {
-                  data.type && (
-                    <li className='user-menu'>
-                      <Button color="success" auto ghost onClick={()=>receiveBack(data._id,data.amount)}>ได้เงินคืนแล้ว</Button>
-                    </li>
-                  )
-                }
-                {
-                  !(data.type) && (
-                    <li className='user-menu'>
-                      <Button color="success" auto ghost onClick={()=>payBack(data._id,data.amount)}>คืนเงินแล้ว</Button>
-                    </li>
-                  )
-                }
 
                 
               </div>

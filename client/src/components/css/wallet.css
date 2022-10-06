@@ -195,6 +195,8 @@ aside {
 
 .des-detail-list {
     width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .amount-detail-list {
@@ -228,7 +230,7 @@ aside {
     padding: 20px;
 }
 
-.debt-balance {
+.debt-balance p{
     width: 100%;
     /* height: 200px;
     background: #333; */
@@ -237,6 +239,7 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Prompt', sans-serif;
 }
 
 .borrow-balance {
@@ -306,6 +309,10 @@ aside {
     background: #c04e61;
 }
 
+.check-button {
+    margin-right: 10px;
+}
+
 @media screen and (max-width: 1300px) { 
     .overview-area-items {
         flex-direction: column;
@@ -352,5 +359,26 @@ aside {
         width: 80%;
     }
 
+}
+
+@media screen and (max-width: 800px) { 
+
+    .detail-lists {
+        flex-direction: column;
+    }
+    .des-detail-list {
+        width: 90%;
+        justify-content: space-between;
+    }
+    .amount-detail-list {
+        width: 100%;
+        justify-content: center;
+    }
+    .amount-detail-lists {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
