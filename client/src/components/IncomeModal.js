@@ -57,9 +57,9 @@ const IncomeModal = () => {
   return (
     <div>
         <button className="item-wallet-income" onClick={handler}>
-            <Text size={18}>
+            <span>
                 รายรับ
-            </Text>
+            </span>
         </button>
         <Modal
             closeButton

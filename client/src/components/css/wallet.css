@@ -206,6 +206,94 @@ aside {
     align-items: flex-end;
 }
 
+.mydebt-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mydebt-area {
+    width: 50%;
+    /* height: 400px; */
+    background: #3A3B3C;
+    border-radius: 10px;
+}
+
+.debt-area-items {
+    height: 350px;
+    padding: 20px;
+}
+
+.debt-balance {
+    width: 100%;
+    /* height: 200px;
+    background: #333; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.borrow-balance {
+    width: 100%;
+    height: 90px;
+    background: #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.lend-balance {
+    width: 100%;
+    height: 90px;
+    background: #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.debt-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.borrow-button {
+    width: 49%;
+    height: 90px;
+    background: #5D7B6F;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    touch-action: manipulation;
+}
+
+.borrow-button:hover {
+    background: #6e9183;
+}
+
+.lend-button {
+    width: 49%;
+    height: 90px;
+    background: #EF5C76;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    touch-action: manipulation;
+}
+
+.lend-button:hover {
+    background: #c04e61;
+}
+
 @media screen and (max-width: 1300px) { 
     .overview-area-items {
         flex-direction: column;

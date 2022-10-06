@@ -72,7 +72,7 @@ const Navbar = () => {
                         {
                             isLoggedIn() && (
                                 <li className="user-menu username-text">
-                                    <Text color="#fff">สวัสดี {getUser()} !</Text>
+                                    <span>สวัสดี {getUser()} !</span>
                                 </li>
                             )
                         }

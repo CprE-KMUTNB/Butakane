@@ -78,21 +78,21 @@ const Overview = () => {
           </div>
 
           <div className="detail-title">
-            <Text size="$xl">รายการ</Text>
+            <span>รายการ</span>
           </div>
         {info.slice(0).reverse().map((data,index)=>(
           <div className="detail-lists" key={index}>
             {
               data.type && (
                 <div className="des-detail-list">
-                  <Text size="$lg">รายรับ - {data.detail}</Text>
+                  <span>รายรับ - {data.detail}</span>
                 </div>
               )
             }
             {
               !(data.type) && (
                 <div className="des-detail-list">
-                  <Text size="$lg">รายจ่าย - {data.detail}</Text>
+                  <span>รายจ่าย - {data.detail}</span>
                 </div>
               )
             }
@@ -101,7 +101,7 @@ const Overview = () => {
                 {
                   data.type && (
                     <div className="amount-detail">
-                      <Text size="$xl" color="success">+ {data.amount}</Text>
+                      <span size="$xl" color="success">+ {data.amount}</span>
                     </div>
                   )
                 }

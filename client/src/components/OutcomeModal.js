@@ -56,9 +56,9 @@ const OutcomeModal = () => {
   return (
     <div>
         <button className="item-wallet-outcome" onClick={handler}>
-            <Text size={18}>
+            <span>
                 รายจ่าย
-            </Text>
+            </span>
         </button>
         <Modal
             closeButton
