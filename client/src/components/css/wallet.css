@@ -251,7 +251,7 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 .borrow-balance p {
@@ -267,7 +267,7 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 .lend-balance p{
