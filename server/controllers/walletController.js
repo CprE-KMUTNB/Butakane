@@ -144,6 +144,15 @@ exports.getDebtData=(req,res)=>{
     }
 }
 
+exports.removeDebt=(req,res)=>{
+
+    const _id = req.body
+
+    debtdata.findByIdAndRemove(_id).exec((err,data)=>{
+        if(err) console.log(err);
+    })
+}
+
 exports.borrow=(req,res)=>{
     const token = req.headers.authorization
     var userinfo = jwt.decode(token)
@@ -219,5 +228,55 @@ exports.lend=(req,res)=>{
             })
         })       
 
+    }
+}
+
+exports.payBack=(req,res)=>{
+
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { _id, amount } = req.body
+    if(userinfo){
+
+        var id = userinfo.userID
+    
+        debtdata.findByIdAndRemove(_id).exec((err,data)=>{
+            if(err) console.log(err);
+        })
+
+        borrowdata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].balance)
+            balanceInt = balanceInt - parseInt(amount)
+            var balance = String(balanceInt)
+            borrowdata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })
+    }
+}
+
+exports.receiveBack=(req,res)=>{
+
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { _id, amount } = req.body
+    if(userinfo){
+
+        var id = userinfo.userID
+    
+        debtdata.findByIdAndRemove(_id).exec((err,data)=>{
+            if(err) console.log(err);
+        })
+
+        lenddata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].balance)
+            balanceInt = balanceInt - parseInt(amount)
+            var balance = String(balanceInt)
+            lenddata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })
     }
 }

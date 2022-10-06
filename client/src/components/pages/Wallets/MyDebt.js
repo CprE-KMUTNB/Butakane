@@ -1,10 +1,11 @@
 import '../../css/wallet.css'
-import { Text } from '@nextui-org/react'
+import { Button, Text } from '@nextui-org/react'
 import BorrowModal from '../../BorrowModal'
 import LendModal from '../../LendModal'
 import React from 'react'
 import axios from 'axios'
 import { getToken } from '../../../services/authorize'
+import { useNavigate } from 'react-router-dom'
 
 const MyDebt = () => {
 
@@ -12,6 +13,8 @@ const MyDebt = () => {
   const [borrow,setBorrow] = React.useState()
   const [lend,setLend] = React.useState()
   const token = getToken()
+  const navigate = useNavigate()
+
   const fetchData =()=>{
     axios.get(`${process.env.REACT_APP_API}/borrowInfo`,{
       headers:{
@@ -45,6 +48,80 @@ const MyDebt = () => {
   React.useEffect(()=>{
     fetchData()// eslint-disable-next-line
   },[])
+
+  const payBack=(_id,amount)=>{
+    axios
+    .put(
+      `${process.env.REACT_APP_API}/payback`,
+      {
+        _id,
+        amount
+      },{
+        headers:{
+          'Authorization':token
+          }
+      }
+    ).then(response=>{
+    })
+    .catch(err=>console.log(err))
+    axios
+        .put(
+            `${process.env.REACT_APP_API}/outcome`,
+            { amount, detail:`(คืนเงิน)` },
+            {
+                headers:{
+                'Authorization':token
+                }
+            }
+        )
+        .then(response => {
+            
+        })
+        .catch(err => {
+            console.log("error");
+        })
+
+    navigate("/Debt")
+    fetchData()
+  }
+
+  const receiveBack=(_id,amount)=>{
+    axios
+    .put(
+      `${process.env.REACT_APP_API}/receiveback`,
+      {
+        _id,
+        amount
+      },{
+        headers:{
+          'Authorization':token
+          }
+      }
+    ).then(response=>{
+    })
+    .catch(err=>console.log(err))
+    axios
+        .put(
+            `${process.env.REACT_APP_API}/income`,
+            { amount, detail:`(ได้รับเงินคืน)` },
+            {
+                headers:{
+                'Authorization':token
+                }
+            }
+        )
+        .then(response => {
+            
+        })
+        .catch(err => {
+            console.log("error");
+        })
+
+    navigate("/Debt")
+    fetchData()
+  }
+
+
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
@@ -107,6 +184,22 @@ const MyDebt = () => {
                 <div className="timestamp-detail">
                   <Text>{new Date(data.createdAt).toLocaleString()}</Text>
                 </div>
+                {
+                  data.type && (
+                    <li className='user-menu'>
+                      <Button color="success" auto ghost onClick={()=>receiveBack(data._id,data.amount)}>ได้เงินคืนแล้ว</Button>
+                    </li>
+                  )
+                }
+                {
+                  !(data.type) && (
+                    <li className='user-menu'>
+                      <Button color="success" auto ghost onClick={()=>payBack(data._id,data.amount)}>คืนเงินแล้ว</Button>
+                    </li>
+                  )
+                }
+
+                
               </div>
             </div>
           </div>

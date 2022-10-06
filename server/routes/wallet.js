@@ -9,7 +9,10 @@ const
         lend, 
         getBorrowInfo, 
         getLendInfo, 
-        getDebtData
+        getDebtData,
+        removeDebt,
+        payBack,
+        receiveBack
     } = require("../controllers/walletController")
 const router = express.Router()
 
@@ -25,5 +28,8 @@ router.get('/debtinfo',getDebtData)
 
 router.post('/borrow',borrow)
 router.post('/lend',lend)
+
+router.put('/payback',payBack)
+router.put('/receiveback',receiveBack)
 
 module.exports = router
