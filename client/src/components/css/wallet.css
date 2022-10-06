@@ -380,5 +380,9 @@ aside {
         justify-content: space-between;
         align-items: center;
     }
+
+    .check-button span {
+        display: none;
+    }
 }
 

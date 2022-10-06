@@ -156,7 +156,7 @@ const MyDebt = () => {
                 <div className="des-detail-list">
                   {
                   data.type && (
-                    <Button className="check-button" color="success" auto rounded ghost onClick={()=>receiveBack(data._id,data.amount)}><WalletIcon />ได้รับคืนแล้ว</Button>
+                    <Button className="check-button" color="success" auto rounded ghost onClick={()=>receiveBack(data._id,data.amount)}><WalletIcon /><span>ได้รับคืนแล้ว</span></Button>
                   )}
                   <span>ให้ {data.name} ยืมเงิน - {data.detail}</span>
                 </div>
@@ -167,7 +167,7 @@ const MyDebt = () => {
                 <div className="des-detail-list">
                   {
                     !(data.type) && (
-                        <Button className="check-button" color="success" auto rounded ghost onClick={()=>payBack(data._id,data.amount)}><WalletIcon />คืนเงินแล้ว</Button>
+                        <Button className="check-button" color="success" auto rounded ghost onClick={()=>payBack(data._id,data.amount)}><WalletIcon /><span>คืนเงินแล้ว</span></Button>
                     )
                   }
                   <span>ยืมเงินจาก {data.name} - {data.detail}</span>
