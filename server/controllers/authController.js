@@ -24,13 +24,14 @@ exports.register=(req,res)=>{
             break;
         }
     }
-
+    
     //encrypt password
     bcrypt.genSalt(15,(err,salt)=>{
         bcrypt.hash(password,salt,(err,hash)=>{
             password = hash
             //save data
-            usersdata.create({username,password},(err,data)=>{
+            var userLow = String(username).toLowerCase()
+            usersdata.create({username:userLow,password},(err,data)=>{
                 if(err){
                     res.status(400).json({error:"Username has been used"})
                 }
@@ -55,7 +56,7 @@ exports.register=(req,res)=>{
                     }
                     
                 })
-                goaldata.create({id,item:"",url:"",price:""},(err,data)=>{
+                goaldata.create({id,item:"",url:"",piggy:"0",price:""},(err,data)=>{
                     if(err){
                         res.status(400).json({err})
                     }
@@ -79,7 +80,9 @@ exports.login=(req,res)=>{
             break;
         }
     }
-    usersdata.findOne({username})
+
+
+    usersdata.findOne({username:String(username).toLowerCase()})
     .then((user)=>{
         if(user){
             bcrypt

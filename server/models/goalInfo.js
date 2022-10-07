@@ -16,10 +16,14 @@ const goalSchema = mongoose.Schema({
         type:String,
         require:true
     },
+    piggy:{
+        type:String,
+        require:true
+    },
     url:{
         type:String
     }
-    
+
 },{timestamps:true})
 
 module.exports = mongoose.model("goaldata",goalSchema)

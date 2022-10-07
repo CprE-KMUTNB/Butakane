@@ -15,8 +15,19 @@ const MyGoal = () => {
     url:""
   })
 
+  const [info,setInfo] = useState({
+    item:"",
+    price:"",
+    piggy:"",
+    url:""
+  })
+
   const token = getToken()
   const {item,price,url} = state
+  // const itemInfo = info.item
+  // const priceInfo = info.price
+  // const piggyInfo = info.piggy
+  // const urlInfo = info.url
 
   // put value to state
   const inputValue = name => event => {
@@ -30,8 +41,10 @@ const MyGoal = () => {
       }
     })
     .then(response=>{
-      setState(response.data[0])
+      setInfo(response.data[0])
+      
     }).catch(err=>alert(err))
+    
   }
 
   const submitGoal = (e) => {
@@ -66,12 +79,12 @@ const MyGoal = () => {
                 <div className="goal-img">
                   <img src={url} alt="" />
                 </div>
-                <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url" initialValue={url} status="default" width='80%' />
-                <h3>สะสมได้ <span>999</span> จาก <span>{price}</span> </h3>
+                <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url" initialValue={info.url} status="default" width='80%' />
+                <h3>สะสมได้ <span>999</span> จาก <span>{info.price}</span> </h3>
                 <div className="goal-progress">
                   <Progress shadow value={200} max={2500} />
                 </div>
-                <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={price} status="default" width='80%' />
+                <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={info.price} status="default" width='80%' />
 
                 <button className='goal-save' onClick={submitGoal}>บันทึกข้อมูล</button>
                 <GoalIncomeModal/>
