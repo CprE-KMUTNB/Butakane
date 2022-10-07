@@ -368,7 +368,8 @@ aside {
 .goal-img img {
     width: auto;
     height: 180px;
-    object-fit: cover
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .goal-progress {
@@ -445,6 +446,48 @@ aside {
 
 .goal-reset:hover {
     background: #036072;
+}
+
+.ow-mygoal-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.ow-mygoal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ow-mygoal-img {
+    width: 80%;
+    height: 180px;
+    border-radius: 10px;
+    background: #16181A;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.ow-mygoal-img img {
+    width: auto;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover
+}
+
+.ow-mygoal-progress {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 1300px) { 

@@ -9,8 +9,6 @@ import axios from 'axios';
 
 const Overview = () => {
 
-  let myGoalPg = 55;
-
   var [info,setInfo] = React.useState([])
 
   const [wallet,setWallet] = React.useState([])
@@ -71,7 +69,19 @@ const Overview = () => {
                 </div>
               </div>
               <div className="overview-area-item-2">
-                <Progress color="primary" value={myGoalPg} />
+                <div className="ow-mygoal-area">
+                  <div className="ow-mygoal-header">
+                    <h3>เป้าหมายของฉัน</h3>
+                    <h4>Macbook</h4>
+                  </div>
+                  <div className="ow-mygoal-img">
+                    <img src="https://www.apple.com/th/macbook-air-m2/images/overview/hero/battery_hw_midnight__ctl0mn014k2u_large.jpg" alt="" />
+                  </div>
+                  <div className="ow-mygoal-progress">
+                    <h6>สะสมได้ <span>999</span> จาก <span>99999</span> </h6>
+                    <Progress shadow value={200} max={2500} />
+                  </div>
+                </div>
               </div>
               <div className="overview-area-item-3"></div>
             </div>
