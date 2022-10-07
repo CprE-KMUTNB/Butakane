@@ -44,6 +44,9 @@ const RegButton = (props) => {
                 authenticate(response,()=>navigate("/Wallet"))
               }
 
+              setVisible(false);
+              console.log("closed");
+
               setState({ ...state, username: "", password: "", confirmPass: "" })
             })
             .catch(err => {
@@ -54,8 +57,7 @@ const RegButton = (props) => {
           console.log(err);
         })
     
-    setVisible(false);
-    console.log("closed");
+    
   }
 
   const [visible, setVisible] = React.useState(false);

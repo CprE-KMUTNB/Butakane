@@ -177,6 +177,7 @@ aside {
     border-radius: 10px;
 }
 
+
 .detail-title {
     padding: 20px;
 }
@@ -488,6 +489,50 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.ow-today-area {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ow-today-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ow-today-card-items {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+
+.ow-today-badge {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #5D7B6F;
+    border-radius: 10px;
+}
+
+.ow-today-item {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #444A66;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 1300px) { 

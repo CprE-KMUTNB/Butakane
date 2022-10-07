@@ -92,7 +92,25 @@ const Overview = () => {
                   </div>
                 </div>
               </div>
-              <div className="overview-area-item-3"></div>
+              <div className="overview-area-item-3">
+                <div className="ow-today-area">
+                  <div className="ow-today-items">
+                    <div className="ow-today-header"><h3>สรุปวันนี้</h3></div>
+                    <div className="ow-today-card-items">
+                      <div className="ow-today-badge">รายรับ</div>
+                      <div className="ow-today-item">+<span>2000</span></div>
+                    </div>
+                    <div className="ow-today-card-items">
+                      <div className="ow-today-badge">รายจ่าย</div>
+                      <div className="ow-today-item">-<span>500</span></div>
+                    </div>
+                    <div className="ow-today-card-items">
+                      <div className="ow-today-badge">ผลรวม</div>
+                      <div className="ow-today-item">+<span>1500</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
