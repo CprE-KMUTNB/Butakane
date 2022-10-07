@@ -12,6 +12,7 @@ const Overview = () => {
   var [info,setInfo] = React.useState([])
 
   const [wallet,setWallet] = React.useState([])
+  const [goal,setGoal] = React.useState({})
   const token = getToken()
   const fetchData = ()=>{
 
@@ -39,6 +40,14 @@ const Overview = () => {
     })
     .catch(err=>alert(err))
 
+    axios.get(`${process.env.REACT_APP_API}/goalinfo`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setGoal(response.data[0])
+    }).catch(err=>alert(err))
   }
   React.useEffect(()=>{
     fetchData()// eslint-disable-next-line
@@ -72,14 +81,14 @@ const Overview = () => {
                 <div className="ow-mygoal-area">
                   <div className="ow-mygoal-header">
                     <h3>เป้าหมายของฉัน</h3>
-                    <h4>Macbook</h4>
+                    <h4>{goal.item}</h4>
                   </div>
                   <div className="ow-mygoal-img">
-                    <img src="https://www.apple.com/th/macbook-air-m2/images/overview/hero/battery_hw_midnight__ctl0mn014k2u_large.jpg" alt="" />
+                    <img src={goal.url} alt="" />
                   </div>
                   <div className="ow-mygoal-progress">
-                    <h6>สะสมได้ <span>999</span> จาก <span>99999</span> </h6>
-                    <Progress shadow value={200} max={2500} />
+                    <h6>สะสมได้ <span>{goal.piggy}</span> จาก <span>{goal.price}</span> </h6>
+                    <Progress shadow value={parseInt(goal.piggy)} max={parseInt(goal.price)} />
                   </div>
                 </div>
               </div>
