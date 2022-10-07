@@ -331,7 +331,57 @@ exports.addPiggy=(req,res)=>{
                 if(err) console.log(err)
             })
         })
+
+
+    }
+}
+
+exports.removePiggy=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { amount } = req.body
+    if(userinfo){
+
+        var id = userinfo.userID
+        goaldata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].piggy)
+            balanceInt = balanceInt - parseInt(amount)
+            var piggy = String(balanceInt)
+            goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })
         
 
+    }
+}
+
+exports.reachedGoal=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+
+        var id = userinfo.userID
+
+        goaldata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            // if(data[0].piggy===data[0].price){
+            //     goaldata.findOneAndUpdate({id},{item:"",price:"",piggy:"",url:""}).exec((err,data)=>{
+            //         if(err) console.log(err)
+            //     })
+            // }
+            // if(parseInt(data[0].piggy)>=parseInt(data[0].price)){
+
+
+            //     goaldata.findOneAndUpdate({id},{item:"",price:"",piggy:"",url:""}).exec((err,data)=>{
+            //         if(err) console.log(err)
+            //     })
+            // }
+            goaldata.findOneAndUpdate({id},{item:"",price:"0",piggy:"0",url:""}).exec((err,data)=>{
+                if(err) console.log(err)
+
+            })
+        })
     }
 }

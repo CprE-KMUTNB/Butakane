@@ -15,7 +15,9 @@ const
         receiveBack,
         getGoalData,
         myGoal,
-        addPiggy
+        addPiggy,
+        removePiggy,
+        reachedGoal
     } = require("../controllers/walletController")
 const router = express.Router()
 
@@ -38,5 +40,7 @@ router.put('/receiveback',receiveBack)
 
 router.put('/savegoal',myGoal)
 router.put('/addpiggy',addPiggy)
+router.put('/removepiggy',removePiggy)
+router.put('/reachedgoal',reachedGoal)
 
 module.exports = router

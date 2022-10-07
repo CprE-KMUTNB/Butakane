@@ -45,14 +45,15 @@ const GoalIncomeModal = () => {
             }
         )
         .then(response => {
-            setVisible(false);
-            console.log("closed");
-            setState({ ...state, amount: "" })
             navigate("/Goal")
+            setState({ ...state, amount: "" })
+            
         })
         .catch(err => {
             console.log("error");
         })
+        setVisible(false);
+        console.log("closed");
         
     }
 
