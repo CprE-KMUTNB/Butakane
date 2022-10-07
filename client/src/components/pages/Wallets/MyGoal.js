@@ -67,6 +67,52 @@ const MyGoal = () => {
     fetchData()// eslint-disable-next-line
   },[])
 
+  const submitReachedGoal = () =>{
+    if(info.piggy===info.price){
+      axios
+      .put(`${process.env.REACT_APP_API}/reachedgoal`,
+      {},
+      {
+        headers:{
+          'Authorization':token
+        }
+      }).then(response=>{
+        fetchData()
+      })
+    }
+    if(info.piggy>info.price){
+      var amount = parseInt(info.piggy) - parseInt(info.price)
+      axios
+        .put(
+            `${process.env.REACT_APP_API}/income`,
+            { amount, detail:`เงินทอนจากเป้าหมาย` },
+            {
+                headers:{
+                'Authorization':token
+                }
+            }
+        )
+        .then(response => {
+          fetchData()
+        })
+        .catch(err => {
+            console.log("error");
+        })
+      axios
+      .put(`${process.env.REACT_APP_API}/reachedgoal`,
+      {},
+      {
+        headers:{
+          'Authorization':token
+        }
+      }).then(response=>{
+        fetchData()
+      })
+    }
+    
+
+  }
+
 
   return (
     <div className="wallet-content-page">
@@ -91,7 +137,7 @@ const MyGoal = () => {
                 <GoalIncomeModal/>
                 <GoalOutcomeModal />
                 {/* <button className='goal-income'>ฝากเพิ่ม</button> */}
-                <button className='goal-reset'>ทำตามเป้าหมายสำเร็จแล้ว</button>
+                <button className='goal-reset' onClick={submitReachedGoal}>ทำตามเป้าหมายสำเร็จแล้ว</button>
               </div>
               
 
