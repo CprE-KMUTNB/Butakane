@@ -156,6 +156,8 @@ exports.getGoalData=(req,res)=>{
     }
 }
 
+
+
 exports.removeDebt=(req,res)=>{
 
     const _id = req.body
@@ -309,6 +311,27 @@ exports.myGoal=(req,res)=>{
             }
             res.status(200).json(data)
         })
+
+    }
+}
+
+exports.addPiggy=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { amount } = req.body
+    if(userinfo){
+
+        var id = userinfo.userID
+        goaldata.find({id}).exec((err,data)=>{
+            if(err) console.log(err)
+            var balanceInt = parseInt(data[0].piggy)
+            balanceInt = balanceInt + parseInt(amount)
+            var piggy = String(balanceInt)
+            goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
+                if(err) console.log(err)
+            })
+        })
+        
 
     }
 }

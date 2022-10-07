@@ -18,6 +18,7 @@ const NavRouter = () => {
       <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/Debt" element={<Navigate to="/Wallet/MyDebt" />} />
+          <Route path="/Goal" element={<Navigate to="/Wallet/MyGoal" />} />
           <Route path="Wallet" element={<Wallet/>} >
             <Route path="/Wallet" element={<Navigate to="Overview" />} />
             

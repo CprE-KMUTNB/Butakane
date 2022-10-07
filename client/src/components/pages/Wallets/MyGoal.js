@@ -68,7 +68,6 @@ const MyGoal = () => {
   },[])
 
 
-
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
@@ -82,9 +81,9 @@ const MyGoal = () => {
                   <img src={url} alt="" />
                 </div>
                 <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url" initialValue={url} status="default" width='80%' />
-                <h3>สะสมได้ <span>999</span> จาก <span>{info.price}</span> </h3>
+                <h3>สะสมได้ <span>{info.piggy}</span> จาก <span>{info.price}</span> </h3>
                 <div className="goal-progress">
-                  <Progress shadow value={200} max={2500} />
+                  <Progress shadow value={parseInt(info.piggy)} max={parseInt(info.price)} />
                 </div>
                 <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={price} status="default" width='80%' />
 
