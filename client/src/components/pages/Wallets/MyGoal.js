@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { getToken } from '../../../services/authorize';
 import GoalIncomeModal from '../../GoalIncomeModal';
+import GoalOutcomeModal from '../../GoalOutcomeModal';
 
 
 const MyGoal = () => {
@@ -74,6 +75,7 @@ const MyGoal = () => {
 
                 <button className='goal-save' onClick={submitGoal}>บันทึกข้อมูล</button>
                 <GoalIncomeModal/>
+                <GoalOutcomeModal />
                 {/* <button className='goal-income'>ฝากเพิ่ม</button> */}
                 <button className='goal-reset'>ทำตามเป้าหมายสำเร็จแล้ว</button>
               </div>

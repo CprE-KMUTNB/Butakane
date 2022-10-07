@@ -327,7 +327,7 @@ aside {
 }
 
 .goal-area-items {
-    height: 700px;
+    height: 750px;
     padding: 20px;
 }
 
@@ -419,6 +419,20 @@ aside {
     background: #14a352;
 }
 
+.goal-outcome {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    background: #F4256D;
+}
+
+.goal-outcome:hover {
+    background: #F75F94;
+}
+
 .goal-reset {
     width: 80%;
     padding: 5px;
@@ -426,11 +440,11 @@ aside {
     border-radius: 10px;
     cursor: pointer;
     border-style: none;
-    background: #F31260;
+    background: #048EA9;
 }
 
 .goal-reset:hover {
-    background: #a1224f;
+    background: #036072;
 }
 
 @media screen and (max-width: 1300px) { 
@@ -517,7 +531,7 @@ aside {
     }
 
     .goal-area-items {
-        height: 800px;
+        height: 850px;
     }
     
 }
