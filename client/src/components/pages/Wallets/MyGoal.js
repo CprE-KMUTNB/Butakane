@@ -1,7 +1,56 @@
 import '../../css/wallet.css'
 import { Input, Progress } from "@nextui-org/react";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { getToken } from '../../../services/authorize';
 
 const MyGoal = () => {
+
+  const [state,setState] = useState({
+    item:"",
+    price:"",
+    url:""
+  })
+
+  const token = getToken()
+  const {item,price,url} = state
+
+  // put value to state
+  const inputValue = name => event => {
+    setState({ ...state, [name]: event.target.value })
+  }
+
+  const fetchData = ()=>{
+    axios.get(`${process.env.REACT_APP_API}/goalinfo`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setState(response.data[0])
+    }).catch(err=>alert(err))
+  }
+
+  const submitGoal = (e) => {
+    e.preventDefault()
+    axios
+    .put(`${process.env.REACT_APP_API}/savegoal`,
+    {item,price,url},
+    {
+      headers:{
+        'Authorization':token
+      }
+    })
+    .then(response=>{
+      fetchData()
+    })
+
+  }
+
+  React.useEffect(()=>{
+    fetchData()// eslint-disable-next-line
+  },[])
+
   return (
     <div className="wallet-content-page">
       <div className="wallet-content">
@@ -10,17 +59,17 @@ const MyGoal = () => {
             <div className="goal-area-items">
               <div className="goal-header"><h2>เป้าหมายของคุณ !</h2></div>
               <div className="goal-info">
-                <Input className='goal-input' clearable placeholder="เป้าหมาย" initialValue="เป้าหมาย" status="default" width='80%' />
+                <Input className='goal-input' value={item} onChange={inputValue("item")} clearable placeholder="เป้าหมาย" initialValue={item} status="default" width='80%' />
                 <div className="goal-img">
-                  <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp-spacegray-select-202206_GEO_TH_LANG_TH?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1654014006419" alt="" />
+                  <img src={url} alt="" />
                 </div>
-                <Input className='goal-input' clearable placeholder="url รูปภาพ" initialValue="Url รูปภาพ" status="default" width='80%' />
+                <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url รูปภาพ" initialValue={url} status="default" width='80%' />
                 <div className="goal-progress">
                   <Progress shadow value={200} max={2500} />
                 </div>
-                <Input className='goal-input' clearable placeholder="ราคา" initialValue="ราคา" status="default" width='80%' />
+                <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={price} status="default" width='80%' />
                 
-                <button className='goal-save'>บันทึกข้อมูล</button>
+                <button className='goal-save' onClick={submitGoal}>บันทึกข้อมูล</button>
                 <button className='goal-income'>ฝากเพิ่ม</button>
                 <button className='goal-reset'>รีเซ็ต</button>
               </div>

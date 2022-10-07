@@ -3,6 +3,7 @@ const moneydata = require("../models/moneyInfo")
 const debtdata = require("../models/debtInfo")
 const borrowdata = require("../models/borrowInfo")
 const lenddata = require("../models/lendInfo")
+const goaldata = require("../models/goalInfo")
 const jwt = require("jsonwebtoken")
 
 exports.getWalletInfo=(req,res)=>{
@@ -144,6 +145,17 @@ exports.getDebtData=(req,res)=>{
     }
 }
 
+exports.getGoalData=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        goaldata.find({id}).exec((err,data)=>{
+            res.json(data)
+        })
+    }
+}
+
 exports.removeDebt=(req,res)=>{
 
     const _id = req.body
@@ -278,5 +290,25 @@ exports.receiveBack=(req,res)=>{
                 if(err) console.log(err)
             })
         })
+    }
+}
+
+exports.myGoal=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    const { item, price, url } = req.body
+    if(userinfo){
+
+        var id = userinfo.userID
+        goaldata.findOneAndUpdate({id},{item,price,url}).exec((err,data)=>{
+            if(data===null){
+                goaldata.create({id,item,price,url},(err,data)=>{
+                    if(err) res.status(400).json({error:err})
+                    
+                })
+            }
+            res.status(200).json(data)
+        })
+
     }
 }
