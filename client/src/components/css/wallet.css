@@ -1,3 +1,11 @@
+.hide {
+    display: none;
+}
+
+.nothide {
+    display: block;
+}
+
 .wallet-page {
     width: 100%;
     min-height: 100vh;
@@ -516,7 +524,7 @@ aside {
 }
 
 .ow-today-badge {
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;

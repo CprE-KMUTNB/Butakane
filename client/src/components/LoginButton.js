@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
+import { Modal, Input, Row, Checkbox, Button, Text, Loading, Spacer } from "@nextui-org/react";
 import { UserIcon } from "./userIcon/UserIcon";
 import { Password } from "./userIcon/Password";
 import axios from "axios";
@@ -9,6 +9,7 @@ import { authenticate, localAuthenticate } from "../services/authorize";
 
 const LoginButton = () => {
 
+  const [hide, setHide] = React.useState("hide")
 
   const [state, setState] = React.useState({
     username: "",
@@ -36,20 +37,25 @@ const LoginButton = () => {
   };
 
   const submitLogin = (e) => {
+    
     e.preventDefault()
     axios
     .post(`${process.env.REACT_APP_API}/login`,{ username, password })
     .then(response => {
       if(checked===true){
         localAuthenticate(response,()=>navigate("/Wallet"))
+        setHide("nothide")
       }else{
         authenticate(response,()=>navigate("/Wallet"))
+        setHide("nothide")
       }
+      
       setVisible(false);
       console.log("closed");
 
       setState({ ...state, username: "", password: "" })
     })
+    // setHide("nothide")
     .catch(err => {
       console.log("error");
     })
@@ -106,6 +112,8 @@ const LoginButton = () => {
           </Row>
         </Modal.Body>
         <Modal.Footer>
+          <Loading className={hide} type="spinner" size="lg" color="secondary" />
+          <Spacer x={6} />
           <Button auto flat color="error" onClick={closeHandler}>
             Close
           </Button>
