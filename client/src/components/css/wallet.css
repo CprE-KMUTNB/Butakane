@@ -313,6 +313,122 @@ aside {
     margin-right: 10px;
 }
 
+.mygoal-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mygoal-area {
+    width: 40%;
+    /* height: 400px; */
+    background: #3A3B3C;
+    border-radius: 10px;
+}
+
+.goal-area-items {
+    height: 650px;
+    padding: 20px;
+}
+
+.goal-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.goal-input {
+    margin-bottom: 10px;
+}
+
+.goal-img {
+    width: 80%;
+    height: 200px;
+    border-radius: 10px;
+    background: #16181A;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.goal-img img {
+    width: auto;
+    height: 180px;
+    object-fit: cover
+}
+
+.goal-progress {
+    width: 80%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.goal-save {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    background: #0072F5;
+}
+
+.goal-save:hover {
+    background: #4e95e6;
+}
+
+.goal-income {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    background: #17C964;
+}
+
+.goal-income:hover {
+    background: #14a352;
+}
+
+.goal-income {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    background: #17C964;
+}
+
+.goal-income:hover {
+    background: #14a352;
+}
+
+.goal-reset {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    background: #F31260;
+}
+
+.goal-reset:hover {
+    background: #a1224f;
+}
+
 @media screen and (max-width: 1300px) { 
     .overview-area-items {
         flex-direction: column;
