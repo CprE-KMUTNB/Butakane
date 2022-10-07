@@ -327,7 +327,7 @@ aside {
 }
 
 .goal-area-items {
-    height: 650px;
+    height: 700px;
     padding: 20px;
 }
 
@@ -344,6 +344,10 @@ aside {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.goal-info span {
+    color:#F6AD37
 }
 
 .goal-input {

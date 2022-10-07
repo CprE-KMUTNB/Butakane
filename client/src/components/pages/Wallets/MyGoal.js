@@ -3,6 +3,8 @@ import { Input, Progress } from "@nextui-org/react";
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getToken } from '../../../services/authorize';
+import GoalIncomeModal from '../../GoalIncomeModal';
+
 
 const MyGoal = () => {
 
@@ -64,14 +66,16 @@ const MyGoal = () => {
                   <img src={url} alt="" />
                 </div>
                 <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url" initialValue={url} status="default" width='80%' />
+                <h3>สะสมได้ <span>999</span> จาก <span>{price}</span> </h3>
                 <div className="goal-progress">
                   <Progress shadow value={200} max={2500} />
                 </div>
                 <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={price} status="default" width='80%' />
-                
+
                 <button className='goal-save' onClick={submitGoal}>บันทึกข้อมูล</button>
-                <button className='goal-income'>ฝากเพิ่ม</button>
-                <button className='goal-reset'>รีเซ็ต</button>
+                <GoalIncomeModal/>
+                {/* <button className='goal-income'>ฝากเพิ่ม</button> */}
+                <button className='goal-reset'>ทำตามเป้าหมายสำเร็จแล้ว</button>
               </div>
               
 
