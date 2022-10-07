@@ -320,7 +320,7 @@ aside {
 }
 
 .mygoal-area {
-    width: 40%;
+    width: 600px;
     /* height: 400px; */
     background: #3A3B3C;
     border-radius: 10px;
@@ -439,6 +439,10 @@ aside {
         margin: 10px;
     }
 
+    .mygoal-area {
+        width: 90%;
+    }
+
     
 }
 
@@ -500,5 +504,7 @@ aside {
     .check-button span {
         display: none;
     }
+
+    
 }
 
