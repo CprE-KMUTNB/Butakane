@@ -63,7 +63,7 @@ const MyGoal = () => {
                 <div className="goal-img">
                   <img src={url} alt="" />
                 </div>
-                <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url รูปภาพ" initialValue={url} status="default" width='80%' />
+                <Input className='goal-input' value={url} onChange={inputValue("url")} clearable placeholder="url" initialValue={url} status="default" width='80%' />
                 <div className="goal-progress">
                   <Progress shadow value={200} max={2500} />
                 </div>
