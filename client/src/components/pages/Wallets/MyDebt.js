@@ -6,7 +6,7 @@ import React from 'react'
 import axios from 'axios'
 import { getToken } from '../../../services/authorize'
 import { useNavigate } from 'react-router-dom'
-import { WalletIcon } from '../../userIcon/WalletIcon'
+import { AlreadyIcon } from '../../userIcon/AlreadyIcon'
 
 const MyDebt = () => {
 
@@ -156,7 +156,7 @@ const MyDebt = () => {
                 <div className="des-detail-list">
                   {
                   data.type && (
-                    <Button className="check-button" color="success" auto rounded ghost onClick={()=>receiveBack(data._id,data.amount)}><WalletIcon /><span>ได้รับคืนแล้ว</span></Button>
+                    <Button className="check-button" color="success" auto rounded ghost onClick={()=>receiveBack(data._id,data.amount)}><AlreadyIcon /><span>ได้รับคืนแล้ว</span></Button>
                   )}
                   <span>ให้ {data.name} ยืมเงิน - {data.detail}</span>
                 </div>
@@ -167,7 +167,7 @@ const MyDebt = () => {
                 <div className="des-detail-list">
                   {
                     !(data.type) && (
-                        <Button className="check-button" color="success" auto rounded ghost onClick={()=>payBack(data._id,data.amount)}><WalletIcon /><span>คืนเงินแล้ว</span></Button>
+                        <Button className="check-button" color="success" auto rounded ghost onClick={()=>payBack(data._id,data.amount)}><AlreadyIcon /><span>คืนเงินแล้ว</span></Button>
                     )
                   }
                   <span>ยืมเงินจาก {data.name} - {data.detail}</span>
