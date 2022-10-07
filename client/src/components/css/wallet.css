@@ -508,7 +508,17 @@ aside {
     .check-button span {
         display: none;
     }
+    .mygoal-area {
+        width: 100%;
+    }
 
+    .goal-img {
+        width: 100%;
+    }
+
+    .goal-area-items {
+        height: 800px;
+    }
     
 }
 
