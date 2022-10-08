@@ -49,7 +49,7 @@ router.put('/addpiggy',addPiggy)
 router.put('/removepiggy',removePiggy)
 router.put('/reachedgoal',reachedGoal)
 
-router.delete('/deleteuser',deleteUser)
-router.delete('/deletedata',deleteData)
+// router.delete('/deleteuser',deleteUser)
+// router.delete('/deletedata',deleteData)
 
 module.exports = router

@@ -149,7 +149,12 @@ exports.getIncomeSummary = (req,res)=>{
                 }
               
               })
-            res.status(200).json(incomeArr.reduce((a,b)=>a+b))
+            console.log();
+            if(incomeArr.length===0) {
+                console.log("heh");
+                res.status(200).json(0)
+            }
+            else{res.status(200).json(incomeArr.reduce((a,b)=>a+b))}
         })
     }
 }
@@ -169,7 +174,8 @@ exports.getOutcomeSummary = (req,res)=>{
                 }
               
               })
-            res.status(200).json(outcomeArr.reduce((a,b)=>a+b))
+            if(outcomeArr.length===0){res.status(200).json(0)}
+            else{res.status(200).json(outcomeArr.reduce((a,b)=>a+b))}
         })
     }
 }
@@ -426,35 +432,41 @@ exports.reachedGoal=(req,res)=>{
     }
 }
 
-exports.deleteData=(req,res)=>{
-    const token = req.headers.authorization
-    var userinfo = jwt.decode(token)
-    if(userinfo){
-        var id = userinfo.userID
+// exports.deleteData=(req,res)=>{
+//     const token = req.headers.authorization
+//     var userinfo = jwt.decode(token)
+//     if(userinfo){
+//         var id = userinfo.userID
         
-        walletdata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-        moneydata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-        debtdata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-        goaldata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-        lenddata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-        borrowdata.findOneAndDelete({id}).exec(err=>{
-            if(err) res.status(400).json(err)
-            res.status(200)
-        })
-    }
-}
+//         walletdata.findOneAndDelete({id}).exec(err=>{
+//             if(err) res.status(400).json(err)
+//             res.status(200)
+//         })
+//         moneydata.find({id}).exec((err,data)=>{
+//             if(err) res.status(400).json(err)
+//             for (let index = 0; index < data.length; index++) {
+//                 moneydata.findByIdAndDelete(data._id)
+//             }
+//             res.status(200)
+//         })
+//         debtdata.find({id}).exec((err,data)=>{
+//             if(err) res.status(400).json(err)
+//             for (let index = 0; index < data.length; index++) {
+//                 debtdata.findByIdAndDelete(data._id)
+//             }
+//             res.status(200)
+//         })
+//         goaldata.findOneAndDelete({id}).exec(err=>{
+//             if(err) res.status(400).json(err)
+//             res.status(200)
+//         })
+//         lenddata.findOneAndDelete({id}).exec(err=>{
+//             if(err) res.status(400).json(err)
+//             res.status(200)
+//         })
+//         borrowdata.findOneAndDelete({id}).exec(err=>{
+//             if(err) res.status(400).json(err)
+//             res.status(200)
+//         })
+//     }
+// }

@@ -1,5 +1,8 @@
 import React from "react";
 import { Modal, Button, Text } from "@nextui-org/react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { clearLocal, clearSession, getToken } from "../services/authorize";
 
 
 const DeleteAccountModal = () => {
@@ -12,6 +15,42 @@ const DeleteAccountModal = () => {
     console.log("closed");
   };
 
+  const token = getToken()
+  const navigate = useNavigate()
+
+  const submitDeleteAll = () =>{
+
+    axios.delete(
+      `${process.env.REACT_APP_API}/deleteuser`,
+      {
+          headers:{
+          'Authorization':token
+          }
+      }
+    ).then(response => {
+      
+    })
+    .catch(err => {
+      console.log("error");
+    })
+    axios.delete(
+      `${process.env.REACT_APP_API}/deletedata`,
+      {
+          headers:{
+          'Authorization':token
+          }
+      }
+    ).then(response => {
+      
+    })
+    .catch(err => {
+      console.log("error");
+    })
+    clearLocal()
+    clearSession()
+    navigate("/")
+
+  }
     
 
   return (
@@ -30,7 +69,7 @@ const DeleteAccountModal = () => {
           </Text>
         </Modal.Header>
         <Modal.Body>
-        <Button shadow color="error" auto>
+        <Button shadow color="error" auto onClick={submitDeleteAll}>
             ตกลง
         </Button>
         <Button auto flat color="error" onClick={closeHandler}>
