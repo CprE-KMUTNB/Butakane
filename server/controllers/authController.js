@@ -35,6 +35,7 @@ exports.register=(req,res)=>{
                 if(err){
                     res.status(400).json({error:"Username has been used"})
                 }
+                else{
                 var idStr = JSON.stringify(data._id)
                 var id = JSON.parse(idStr)
                 var balance = '0'
@@ -61,7 +62,7 @@ exports.register=(req,res)=>{
                         res.status(400).json({err})
                     }
                     
-                })
+                })}
              })
         })
     })
