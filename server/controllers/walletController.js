@@ -425,3 +425,36 @@ exports.reachedGoal=(req,res)=>{
         })
     }
 }
+
+exports.deleteData=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        
+        walletdata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+        moneydata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+        debtdata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+        goaldata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+        lenddata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+        borrowdata.findOneAndDelete({id}).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+    }
+}
