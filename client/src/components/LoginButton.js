@@ -10,11 +10,12 @@ import { authenticate, localAuthenticate } from "../services/authorize";
 const LoginButton = () => {
 
   const [visible1, setVisible1] = React.useState(false);
-  // const LoadingModal =() => {
-  //   return (
-      
-  //   )
-  // }
+  const [visible2, setVisible2] = React.useState(false);
+  const closeHandler2 = () => {
+    setVisible2(false);
+    setVisible1(false)
+    console.log("closed");
+  };
 
 
   const [state, setState] = React.useState({
@@ -52,7 +53,7 @@ const LoginButton = () => {
     .post(`${process.env.REACT_APP_API}/login`,{ username, password })
     
     .then(response => {
-      
+      setVisible1(true)
       if(checked===true){     
         localAuthenticate(response,()=>navigate("/Wallet"))
       }else{
@@ -66,7 +67,7 @@ const LoginButton = () => {
     })
     // setHide("nothide")
     .catch(err => {
-      setVisible1(false)
+      setVisible2(true)
       console.log("error");
     })
 
@@ -79,6 +80,8 @@ const LoginButton = () => {
       <Button auto flat color="success" onClick={handler}>
         ลงชื่อเข้าใช้
       </Button>
+
+      {/* Loading */}
       <Modal
         blur
         aria-labelledby="modal-title"
@@ -94,6 +97,30 @@ const LoginButton = () => {
           </Text>
         </Modal.Header>
       </Modal>
+      {/* Loading */}
+      {/* Fail to Connect */}
+      <Modal
+        blur
+        aria-labelledby="modal-title"
+        open={visible2}
+        preventClose
+        // open
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+              ชื่อผู้ใช้หรือรหัสผ่านผิด
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Button auto color="warning" shadow onClick={closeHandler2}>
+              ตกลง
+          </Button>
+        </Modal.Body>
+      </Modal>
+      {/* Fail to Connect */}
+
+
+
       <Modal
         closeButton
         blur
@@ -137,8 +164,6 @@ const LoginButton = () => {
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Loading type="spinner" size="lg" color="secondary" />
-          <Spacer x={6} />
           <Button auto flat color="error" onClick={closeHandler}>
             Close
           </Button>
