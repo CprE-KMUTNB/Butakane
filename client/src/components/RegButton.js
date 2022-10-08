@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
+import { Modal, Input, Row, Checkbox, Button, Text, Loading, Spacer } from "@nextui-org/react";
 import { UserIcon } from "./userIcon/UserIcon";
 import { Password } from "./userIcon/Password";
 import axios from 'axios'
@@ -7,7 +7,16 @@ import { authenticate,localAuthenticate } from '../services/authorize'
 
 import { useNavigate } from "react-router-dom";
 
-const RegButton = (props) => {
+const RegButton = () => {
+
+  const [visible1, setVisible1] = React.useState(false);
+  const [visible2, setVisible2] = React.useState(false);
+  const closeHandler2 = () => {
+    setVisible2(false);
+    setVisible1(false)
+    console.log("closed");
+  };
+
 
   const [checked, setChecked] = useState(false); 
   const handleChange = () => { 
@@ -32,6 +41,9 @@ const RegButton = (props) => {
 
   const submitReg = (e) => {
     e.preventDefault()
+    if(username && password){
+      setVisible1(true)
+    }
     axios
         .post(`${process.env.REACT_APP_API}/reg`, { username, password, confirmPass })
         .then(response => {
@@ -54,6 +66,7 @@ const RegButton = (props) => {
             })
         })
         .catch(err => {
+          setVisible2(true)
           console.log(err);
         })
     
@@ -71,6 +84,45 @@ const RegButton = (props) => {
       <Button auto color="gradient" onClick={handler}>
         สมัครสมาชิก
       </Button>
+
+      {/* Loading */}
+      <Modal
+        blur
+        aria-labelledby="modal-title"
+        open={visible1}
+        preventClose
+        // open
+      >
+        <Modal.Header>
+        <Loading type="spinner" size="lg" color="secondary" />
+        <Spacer x={0.5} />
+        <Text id="modal-title" size={18}>
+            กำลังเชื่อมต่อ
+          </Text>
+        </Modal.Header>
+      </Modal>
+      {/* Loading */}
+      {/* Fail to Connect */}
+      <Modal
+        blur
+        aria-labelledby="modal-title"
+        open={visible2}
+        preventClose
+        // open
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+              ชื่อผู้ใช้ซ้ำหรือรหัสผ่านไม่ตรงกัน
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Button auto color="warning" shadow onClick={closeHandler2}>
+              ตกลง
+          </Button>
+        </Modal.Body>
+      </Modal>
+      {/* Fail to Connect */}
+
       <Modal
         closeButton
         blur
