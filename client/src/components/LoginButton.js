@@ -45,14 +45,14 @@ const LoginButton = () => {
   const submitLogin = (e) => {
     
     e.preventDefault()
+    setVisible1(true)
     axios
     .post(`${process.env.REACT_APP_API}/login`,{ username, password })
     
     .then(response => {
       
-      if(checked===true){       
+      if(checked===true){     
         localAuthenticate(response,()=>navigate("/Wallet"))
-        
       }else{
         authenticate(response,()=>navigate("/Wallet"))
       }
