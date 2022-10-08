@@ -45,7 +45,9 @@ const LoginButton = () => {
   const submitLogin = (e) => {
     
     e.preventDefault()
-    setVisible1(true)
+    if(username && password){
+      setVisible1(true)
+    }
     axios
     .post(`${process.env.REACT_APP_API}/login`,{ username, password })
     
@@ -64,6 +66,7 @@ const LoginButton = () => {
     })
     // setHide("nothide")
     .catch(err => {
+      setVisible1(false)
       console.log("error");
     })
 
