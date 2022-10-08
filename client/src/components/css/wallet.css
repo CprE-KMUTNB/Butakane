@@ -1,11 +1,3 @@
-.hide {
-    display: none;
-}
-
-.nothide {
-    display: block;
-}
-
 .wallet-page {
     width: 100%;
     min-height: 100vh;

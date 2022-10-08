@@ -9,7 +9,13 @@ import { authenticate, localAuthenticate } from "../services/authorize";
 
 const LoginButton = () => {
 
-  const [hide, setHide] = React.useState("hide")
+  const [visible1, setVisible1] = React.useState(false);
+  // const LoadingModal =() => {
+  //   return (
+      
+  //   )
+  // }
+
 
   const [state, setState] = React.useState({
     username: "",
@@ -41,13 +47,14 @@ const LoginButton = () => {
     e.preventDefault()
     axios
     .post(`${process.env.REACT_APP_API}/login`,{ username, password })
+    
     .then(response => {
-      if(checked===true){
+      
+      if(checked===true){       
         localAuthenticate(response,()=>navigate("/Wallet"))
-        setHide("nothide")
+        
       }else{
         authenticate(response,()=>navigate("/Wallet"))
-        setHide("nothide")
       }
       
       setVisible(false);
@@ -69,6 +76,21 @@ const LoginButton = () => {
       <Button auto flat color="success" onClick={handler}>
         ลงชื่อเข้าใช้
       </Button>
+      <Modal
+        blur
+        aria-labelledby="modal-title"
+        open={visible1}
+        preventClose
+        // open
+      >
+        <Modal.Header>
+        <Loading type="spinner" size="lg" color="secondary" />
+        <Spacer x={0.5} />
+        <Text id="modal-title" size={18}>
+            กำลังเชื่อมต่อ
+          </Text>
+        </Modal.Header>
+      </Modal>
       <Modal
         closeButton
         blur
@@ -112,7 +134,7 @@ const LoginButton = () => {
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Loading className={hide} type="spinner" size="lg" color="secondary" />
+          <Loading type="spinner" size="lg" color="secondary" />
           <Spacer x={6} />
           <Button auto flat color="error" onClick={closeHandler}>
             Close
