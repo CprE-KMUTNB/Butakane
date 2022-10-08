@@ -1,4 +1,5 @@
 const express = require("express")
+const { deleteUser } = require("../controllers/authController")
 const 
     { 
         getWalletInfo, 
@@ -19,7 +20,8 @@ const
         removePiggy,
         reachedGoal,
         getIncomeSummary,
-        getOutcomeSummary
+        getOutcomeSummary,
+        deleteData
     } = require("../controllers/walletController")
 const router = express.Router()
 
@@ -46,5 +48,8 @@ router.put('/savegoal',myGoal)
 router.put('/addpiggy',addPiggy)
 router.put('/removepiggy',removePiggy)
 router.put('/reachedgoal',reachedGoal)
+
+router.delete('/deleteuser',deleteUser)
+router.delete('/deletedata',deleteData)
 
 module.exports = router

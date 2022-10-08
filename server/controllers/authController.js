@@ -127,3 +127,16 @@ exports.login=(req,res)=>{
 
 
 }
+
+exports.deleteUser=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        
+        usersdata.findByIdAndDelete(id).exec(err=>{
+            if(err) res.status(400).json(err)
+            res.status(200)
+        })
+    }
+}
