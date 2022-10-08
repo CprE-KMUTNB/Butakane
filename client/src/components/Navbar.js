@@ -5,7 +5,6 @@ import LoginButton from './LoginButton';
 import RegButton from './RegButton'
 // import { FaBars } from "react-icons/fa";
 import { clearLocal, clearSession, isLoggedIn, getUser } from '../services/authorize';
-import DeleteAccountModal from './DeleteAccountModal';
 
 const Navbar = () => {
 
@@ -74,13 +73,6 @@ const Navbar = () => {
                             isLoggedIn() && (
                                 <li className="user-menu username-text">
                                     <span>สวัสดี {getUser()} !</span>
-                                </li>
-                            )
-                        }
-                        {
-                            isLoggedIn() && (
-                                <li className="user-menu">
-                                    <DeleteAccountModal/>
                                 </li>
                             )
                         }

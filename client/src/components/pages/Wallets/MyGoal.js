@@ -1,5 +1,5 @@
 import '../../css/wallet.css'
-import { Input, Progress } from "@nextui-org/react";
+import { Input, Modal, Progress, Text, Button } from "@nextui-org/react";
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getToken } from '../../../services/authorize';
@@ -8,6 +8,13 @@ import GoalOutcomeModal from '../../GoalOutcomeModal';
 
 
 const MyGoal = () => {
+
+  const [visible2, setVisible2] = React.useState(false);
+  const closeHandler2 = () => {
+    setVisible2(false);
+    console.log("closed");
+  };
+
 
   const [state,setState] = useState({
     item:"",
@@ -48,6 +55,7 @@ const MyGoal = () => {
   }
 
   const submitGoal = (e) => {
+    setVisible2(true)
     e.preventDefault()
     axios
     .put(`${process.env.REACT_APP_API}/savegoal`,
@@ -133,6 +141,25 @@ const MyGoal = () => {
                 </div>
                 <Input className='goal-input' value={price} onChange={inputValue("price")} clearable placeholder="ราคา" initialValue={price} status="default" width='80%' />
 
+
+                <Modal
+                  blur
+                  aria-labelledby="modal-title"
+                  open={visible2}
+                  preventClose
+                  // open
+                >
+                  <Modal.Header>
+                    <Text id="modal-title" size={18}>
+                        บันทึกเสร็จสิ้น
+                    </Text>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Button auto color="primary" onClick={closeHandler2}>
+                        ตกลง
+                    </Button>
+                  </Modal.Body>
+                </Modal>  
                 <button className='goal-save' onClick={submitGoal}>บันทึกข้อมูล</button>
                 <GoalIncomeModal/>
                 <GoalOutcomeModal />
