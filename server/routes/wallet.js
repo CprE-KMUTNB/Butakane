@@ -17,13 +17,17 @@ const
         myGoal,
         addPiggy,
         removePiggy,
-        reachedGoal
+        reachedGoal,
+        getIncomeSummary,
+        getOutcomeSummary
     } = require("../controllers/walletController")
 const router = express.Router()
 
 router.get('/wallet',getWalletInfo)
 router.get('/borrowInfo',getBorrowInfo)
 router.get('/lendInfo',getLendInfo)
+router.get('/incomesum',getIncomeSummary)
+router.get('/outcomesum',getOutcomeSummary)
 
 router.put('/income',income)
 router.put('/outcome',outcome)

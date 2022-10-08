@@ -13,6 +13,8 @@ const Overview = () => {
 
   const [wallet,setWallet] = React.useState([])
   const [goal,setGoal] = React.useState({})
+  const [incomeSum,setIncomeSum] = React.useState()
+  const [outcomeSum,setOutcomeSum] = React.useState()
   const token = getToken()
   const fetchData = ()=>{
 
@@ -48,8 +50,35 @@ const Overview = () => {
     .then(response=>{
       setGoal(response.data[0])
     }).catch(err=>alert(err))
+    
+    axios.get(`${process.env.REACT_APP_API}/incomesum`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setIncomeSum(response.data)
+    }).catch(err=>alert(err))
+
+    axios.get(`${process.env.REACT_APP_API}/outcomesum`,{
+      headers:{
+        "Authorization":token
+      }
+    })
+    .then(response=>{
+      setOutcomeSum(response.data)
+    }).catch(err=>alert(err))
+    
+
   }
+    
+
+    // const incomeSum = incomeArr.reduce((a,b)=>a+b)
+    // const outcomeSum = outcomeArr.reduce((a,b)=>a+b)
+    
+  
   React.useEffect(()=>{
+    
     fetchData()// eslint-disable-next-line
   },[])
 
@@ -98,15 +127,16 @@ const Overview = () => {
                     <div className="ow-today-header"><h3>สรุปวันนี้</h3></div>
                     <div className="ow-today-card-items">
                       <div className="ow-today-badge">รายรับ</div>
-                      <div className="ow-today-item">+<span>2000</span></div>
+                      
+                      <div className="ow-today-item"><span>{incomeSum}</span></div>
                     </div>
                     <div className="ow-today-card-items">
                       <div className="ow-today-badge">รายจ่าย</div>
-                      <div className="ow-today-item">-<span>500</span></div>
+                      <div className="ow-today-item"><span>{outcomeSum}</span></div>
                     </div>
                     <div className="ow-today-card-items">
                       <div className="ow-today-badge">ผลรวม</div>
-                      <div className="ow-today-item">+<span>1500</span></div>
+                      <div className="ow-today-item"><span>{incomeSum-outcomeSum}</span></div>
                     </div>
                   </div>
                 </div>

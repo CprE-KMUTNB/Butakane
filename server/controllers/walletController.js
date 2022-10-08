@@ -134,6 +134,46 @@ exports.getMoneyData=(req,res)=>{
     }
 }
 
+exports.getIncomeSummary = (req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+
+        moneydata.find({id,type:true}).exec((err,data)=>{
+            const incomeArr = data.map((data)=>{
+                if(((new Date(data.createdAt)).toISOString().slice(0,10))===((new Date()).toISOString().slice(0,10))){
+                  return parseInt(data.amount)
+                }else{
+                  return 0
+                }
+              
+              })
+            res.status(200).json(incomeArr.reduce((a,b)=>a+b))
+        })
+    }
+}
+
+exports.getOutcomeSummary = (req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+
+        moneydata.find({id,type:false}).exec((err,data)=>{
+            const outcomeArr = data.map((data)=>{
+                if(((new Date(data.createdAt)).toISOString().slice(0,10))===((new Date()).toISOString().slice(0,10))){
+                  return parseInt(data.amount)
+                }else{
+                  return 0
+                }
+              
+              })
+            res.status(200).json(outcomeArr.reduce((a,b)=>a+b))
+        })
+    }
+}
+
 exports.getDebtData=(req,res)=>{
     const token = req.headers.authorization
     var userinfo = jwt.decode(token)
