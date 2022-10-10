@@ -122,7 +122,7 @@ nav {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background: #18191A;
+        background: rgba(24, 25, 26, 0.8);
         /* background: blue; */
         height: 100px;
     }
