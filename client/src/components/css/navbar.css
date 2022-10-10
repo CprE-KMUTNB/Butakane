@@ -106,6 +106,10 @@ nav {
         width: 100%;
     }
 
+    nav {
+        background: none
+    }
+
     .navbar {
         display: none;
         background: rgba(24, 25, 26, 0.8);
