@@ -1,12 +1,18 @@
+import React, {useState} from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Button } from '@nextui-org/react'
 import './css/navbar.css';
 import LoginButton from './LoginButton';
 import RegButton from './RegButton'
-// import { FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { clearLocal, clearSession, isLoggedIn, getUser } from '../services/authorize';
 
 const Navbar = () => {
+
+    const [ menuToggle, setmenuToggle ] = useState(false);
+    const navToggle = () => {
+        setmenuToggle(!menuToggle);
+    }
 
     const navigate = useNavigate()
 
@@ -23,26 +29,30 @@ const Navbar = () => {
   return (
     <nav>
         <div className="nav-container">
-            
-            <div className="navbar">
+            <div className="hamburger-area">
+                <button className="menu-bar" onClick={navToggle}>
+                    <FaBars />
+                </button>
+            </div>
+            <div className={`navbar ${menuToggle ? "non-hide" : ""}`}>
                 
                 <Link to="/" className="logo"><span className='logo-buta'>Buta</span>KANE</Link>
                 <div className="nav-menu">
                     <ul className="nav-menu-item">
                         <li className="menu-text">
-                            <NavLink to="/" style={({ isActive }) => isActive ? LinkActive : undefined} >Home</NavLink>
+                            <NavLink to="/" style={({ isActive }) => isActive ? LinkActive : undefined} >หน้าแรก</NavLink>
                         </li>
                         {
                             !isLoggedIn() && (
                                 <li className="menu-text">
-                                    <NavLink to="#" className="notAllowPointer" style={{opacity:"30%"}}>Wallet</NavLink>
+                                    <NavLink to="#" className="notAllowPointer" style={{opacity:"30%"}}>กระเป๋าเงิน</NavLink>
                                 </li> 
                             )
                         }
                         {
                             isLoggedIn() && (
                                 <li className="menu-text">
-                                    <NavLink to="/Wallet" style={({ isActive }) => isActive ? LinkActive : undefined} >Wallet</NavLink>
+                                    <NavLink to="/Wallet" style={({ isActive }) => isActive ? LinkActive : undefined} >กระเป๋าเงิน</NavLink>
                                 </li>
                             )
                         }
@@ -52,7 +62,7 @@ const Navbar = () => {
                         </li> */}
                         
                         <li className="menu-text">
-                            <NavLink to="/Aboutus" style={({ isActive }) => isActive ? LinkActive : undefined}>About us</NavLink>
+                            <NavLink to="/Aboutus" style={({ isActive }) => isActive ? LinkActive : undefined}>เกี่ยวกับเรา</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -87,11 +97,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                {/* <Link to="#" className="menu-bar">
-                    <FaBars />
-                </Link> */}
+                
 
-            </div>
+            </div> 
         </div>
     </nav>
   )

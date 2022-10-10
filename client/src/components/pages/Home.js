@@ -1,7 +1,7 @@
 import '../css/page.css'
 import '../css/home.css'
 import AnimatedPage from '../AnimatedPage'
-import kafImg from '../assets/card-07.png'
+import HomeIMG from '../assets/home.png'
 import { Button } from '@nextui-org/react'
 import { Modal, Text } from '@nextui-org/react'
 import React from 'react'
@@ -25,7 +25,7 @@ const Home = () => {
             <div className="Home-left-box">
               <div className="far-left-box">
                 <h1>รู้หมือไร่ว่า <span className='blue-text'>Butakane</span> คืออะไร?</h1>
-                <p className="op-50-text">Butakane คือ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores veritatis in recusandae sit iure mollitia commodi nihil doloremque libero minima vitae fugit maxime, consequuntur quod excepturi eligendi eum nesciunt temporibus.</p>
+                <p className="op-50-text">Butakane คือ แอพพลิเคชั่นบันทึกบัญชีรายรับรายจ่ายที่ทำงานบนเว็บไซต์สำหรับพร้อมใช้งานได้ทุกเมื่อ ทุกที่ ทุกเวลา ก็พร้อมจะให้คุณได้ใช้ชีวิตที่มีระเบียบในการจัดการเงินของคุณบนแพลตฟอร์มออนไลน์ </p>
                 <div className="Home-button-box">
                     <Modal
                       closeButton
@@ -52,7 +52,7 @@ const Home = () => {
               </div>
             </div>
             <div className="Home-right-box">
-              <img src={kafImg} alt="KAF" />
+              <img src={HomeIMG} alt="KAF" />
             </div>
           </div>
         </div>

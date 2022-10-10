@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 .Home-right-box img {
-    width: 400px;
+    width: 90%;
 }
 
 .Home-button-box {
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, p {
 
 @media screen and (max-width: 1000px) {
     .Home-box {
-        margin-top: 800px;
+        margin-top: 400px;
         flex-direction: column;
         align-items: center;
     }

@@ -91,7 +91,7 @@ const Overview = () => {
             <div className="overview-area-items">
               <div className="overview-area-item-1">
                 <div className="item-balance">
-                  <p>Wallet - Balance</p>
+                  <span>กระเป๋าเงิน - ยอดรวม</span>
                   <h2>{walletBalance}</h2>
                 </div>
                 <div className="items-wallet-action">

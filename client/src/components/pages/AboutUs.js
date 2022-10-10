@@ -1,7 +1,7 @@
 import { Card, Grid, Text, Link } from "@nextui-org/react";
 import '../css/page.css'
 import AnimatedPage from "../AnimatedPage";
-import kafImg from '../assets/kaf3-1.png'
+import lysist from '../assets/lysist.png'
 
 const AboutUs = () => {
   return (
@@ -12,7 +12,7 @@ const AboutUs = () => {
         <img
           alt="nextui logo"
           // src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          src={kafImg}
+          src={lysist}
           width="50px"
           height="50px"
         />
@@ -30,7 +30,7 @@ const AboutUs = () => {
       <Card.Body css={{ py: "$2" }}>
         <Text>Front-End Developer : Sirasit Phongsuwankul</Text>
         <Text>Back-End Developer : Nonthawat Doypinit</Text>
-        <Text>Good Luck Have Fun For Hell!</Text>
+        <Text>หากท่านไม่สุจริตท่านก็จะไม่ได้รับประโยชน์อะไรจากโปรแกรมนี้ !</Text>
       </Card.Body>
       <Card.Footer>
         <Link

@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <AnimatedPage>
     <div className="wrapper">
       <div className="container">
-        <h1>ErrorPage</h1>
+        <h1>404 ค้นหาหน้านี้ไม่พบ</h1>
       </div>
     </div>
     </AnimatedPage>
