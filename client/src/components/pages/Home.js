@@ -7,6 +7,17 @@ import { Modal, Text } from '@nextui-org/react'
 import React from 'react'
 import RegButton from '../RegButton'
 import LoginButton from '../LoginButton'
+import MovingText from 'react-moving-text'
+
+const MyAnimatedTypo = () => {
+  return (
+    <MovingText type="typewriter"
+    dataText={[
+    'สุดยอดโปรแกรมบัญชีรายรับรายจ่าย',
+    'ช่วยจัดระเบียบให้กับชีวิตคุณ',
+    'พร้อมให้บริการแล้ววันนี้'
+    ]} />)
+   }
 
 const Home = () => {
 
@@ -24,7 +35,9 @@ const Home = () => {
           <div className="Home-box">
             <div className="Home-left-box">
               <div className="far-left-box">
+                
                 <h1>รู้หมือไร่ว่า <span className='blue-text'>Butakane</span> คืออะไร?</h1>
+                <h2><MyAnimatedTypo /></h2>
                 <p className="op-50-text">Butakane คือ แอพพลิเคชั่นบันทึกบัญชีรายรับรายจ่ายที่ทำงานบนเว็บไซต์สำหรับพร้อมใช้งานได้ทุกเมื่อ ทุกที่ ทุกเวลา ก็พร้อมจะให้คุณได้ใช้ชีวิตที่มีระเบียบในการจัดการเงินของคุณบนแพลตฟอร์มออนไลน์ </p>
                 <div className="Home-button-box">
                     <Modal
