@@ -61,7 +61,7 @@ const LoginButton = () => {
       }
       
       setVisible(false);
-      console.log("closed");
+      console.log(response);
 
       setState({ ...state, username: "", password: "" })
     })
