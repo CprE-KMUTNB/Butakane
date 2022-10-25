@@ -353,11 +353,11 @@ exports.myGoal=(req,res)=>{
         goaldata.findOneAndUpdate({id},{item,price,url}).exec((err,data)=>{
             if(data===null){
                 goaldata.create({id,item,price,url},(err,data)=>{
-                    if(err) res.status(400).json({error:err})
-                    
+                    if(err){return res.status(400).json({error:err})}
+                    else {return res.json("New Goal data has been created.")} 
                 })
             }
-            res.status(200).json(data)
+            else {return res.json("Goal data has been updated.")}
         })
 
     }
@@ -377,7 +377,7 @@ exports.addPiggy=(req,res)=>{
             var piggy = String(balanceInt)
             goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
                 if(err) console.log(err)
-                res.json(data)
+                res.json(`Added ${amount} to your piggy.`)
             })
         })
 
@@ -399,7 +399,7 @@ exports.removePiggy=(req,res)=>{
             var piggy = String(balanceInt)
             goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
                 if(err) console.log(err)
-                res.json(data)
+                res.json(`Removed ${amount} from your piggy.`)
             })
         })
         
@@ -430,7 +430,7 @@ exports.reachedGoal=(req,res)=>{
             // }
             goaldata.findOneAndUpdate({id},{item:"",price:"0",piggy:"0",url:""}).exec((err,data)=>{
                 if(err) console.log(err)
-                res.json(data)
+                res.json(`${data.item} has been reached.`)
             })
         })
     }
