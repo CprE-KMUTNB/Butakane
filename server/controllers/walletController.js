@@ -311,6 +311,7 @@ exports.payBack=(req,res)=>{
             var balance = String(balanceInt)
             borrowdata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
                 if(err) console.log(err)
+                res.status(200).json({message:"This debt has been payback successfully."})
             })
         })
     }
@@ -336,6 +337,7 @@ exports.receiveBack=(req,res)=>{
             var balance = String(balanceInt)
             lenddata.findOneAndUpdate({id},{balance}).exec((err,data)=>{
                 if(err) console.log(err)
+                res.status(200).json({message:"This debt has been receive back successfully."})
             })
         })
     }
@@ -375,6 +377,7 @@ exports.addPiggy=(req,res)=>{
             var piggy = String(balanceInt)
             goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
                 if(err) console.log(err)
+                res.json(data)
             })
         })
 
@@ -396,6 +399,7 @@ exports.removePiggy=(req,res)=>{
             var piggy = String(balanceInt)
             goaldata.findOneAndUpdate({id},{piggy}).exec((err,data)=>{
                 if(err) console.log(err)
+                res.json(data)
             })
         })
         
@@ -426,7 +430,7 @@ exports.reachedGoal=(req,res)=>{
             // }
             goaldata.findOneAndUpdate({id},{item:"",price:"0",piggy:"0",url:""}).exec((err,data)=>{
                 if(err) console.log(err)
-
+                res.json(data)
             })
         })
     }

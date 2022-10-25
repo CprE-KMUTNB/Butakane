@@ -43,7 +43,7 @@ exports.register=(req,res)=>{
                     if(err){
                         res.status(400).json({err})
                     }
-                    res.json(data)
+                    
                 })
                 borrowdata.create({id,balance},(err,data)=>{
                     if(err){
@@ -62,7 +62,9 @@ exports.register=(req,res)=>{
                         res.status(400).json({err})
                     }
                     
-                })}
+                })
+                res.status(200).json({message:"New user has been created."})
+            }
              })
         })
     })
