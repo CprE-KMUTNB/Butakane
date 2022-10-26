@@ -45,6 +45,63 @@ exports.getLendInfo=(req,res)=>{
     }
 }
 
+exports.getOverviewData=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        walletdata.aggregate([
+            {$match:{id}},
+            {$lookup:{
+                from:"goaldatas",
+                localField:"id",
+                foreignField:"id",
+                as:"goal_data"
+            }},
+            {$lookup:{
+                from:"moneydatas",
+                localField:"id",
+                foreignField:"id",
+                as:"in_out_list"
+            }}
+        ]).exec((err,data)=>{
+            res.json(data[0])
+        })
+    }
+}
+
+exports.getMyDebtdata=(req,res)=>{
+    const token = req.headers.authorization
+    var userinfo = jwt.decode(token)
+    if(userinfo){
+        var id = userinfo.userID
+        
+        lenddata.aggregate(
+            [
+                {
+                $match: {id}
+                },
+                {
+                $lookup: {
+                    from: "borrowdatas",
+                    localField: "id",
+                    foreignField: "id",
+                    as: "borrow_balance"
+                    }
+                },
+                {
+                    $lookup: {
+                        from: "debtdatas",
+                        localField: "id",
+                        foreignField: "id",
+                        as: "debt_list"
+                        }
+                }
+            ]).exec((err,data)=>{
+                res.json(data[0])
+        })
+    }
+}
 
 exports.income=(req,res)=>{
     const token = req.headers.authorization

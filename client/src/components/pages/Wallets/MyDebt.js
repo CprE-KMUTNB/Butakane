@@ -17,34 +17,17 @@ const MyDebt = () => {
   const navigate = useNavigate()
 
   const fetchData =()=>{
-    axios.get(`${process.env.REACT_APP_API}/borrowInfo`,{
+    axios.get(`${process.env.REACT_APP_API}/alldebtinfo`,{
       headers:{
         "Authorization":token
       }
     })
     .then(response=>{
-      setBorrow(response.data[0].balance)
+      setBorrow(response.data.borrow_balance[0].balance)
+      setLend(response.data.balance)
+      setInfo(response.data.debt_list)
     }).catch(err=>alert(err))
 
-    axios.get(`${process.env.REACT_APP_API}/lendInfo`,{
-      headers:{
-        "Authorization":token
-      }
-    })
-    .then(response=>{
-      setLend(response.data[0].balance)
-    }).catch(err=>alert(err))
-    axios
-    .get(`${process.env.REACT_APP_API}/debtInfo`,
-    {
-      headers:{
-        'Authorization':token
-        }
-    })
-    .then(response=>{
-      setInfo(response.data)
-    })
-    .catch(err=>alert(err))
   }
   React.useEffect(()=>{
     fetchData()// eslint-disable-next-line

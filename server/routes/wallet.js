@@ -21,7 +21,9 @@ const
         reachedGoal,
         getIncomeSummary,
         getOutcomeSummary,
-        deleteData
+        deleteData,
+        getMyDebtdata,
+        getOverviewData
     } = require("../controllers/walletController")
 const router = express.Router()
 
@@ -37,6 +39,9 @@ router.put('/outcome',outcome)
 router.get('/moneyinfo',getMoneyData)
 router.get('/debtinfo',getDebtData)
 router.get('/goalinfo',getGoalData)
+
+router.get('/alloverviewinfo',getOverviewData)
+router.get('/alldebtinfo',getMyDebtdata)
 
 router.post('/borrow',borrow)
 router.post('/lend',lend)

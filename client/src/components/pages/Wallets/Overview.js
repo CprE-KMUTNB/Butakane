@@ -19,37 +19,19 @@ const Overview = () => {
   const fetchData = ()=>{
 
     axios
-    .get(`${process.env.REACT_APP_API}/wallet`,
+    .get(`${process.env.REACT_APP_API}/alloverviewinfo`,
     {
       headers:{
         'Authorization':token
         }
     })
     .then(response=>{
-      setWallet(response.data[0].balance)
+      setWallet(response.data.balance)
+      setInfo(response.data.in_out_list)
+      setGoal(response.data.goal_data[0])
     })
     .catch(err=>alert(err))
 
-    axios
-    .get(`${process.env.REACT_APP_API}/moneyinfo`,
-    {
-      headers:{
-        'Authorization':token
-        }
-    })
-    .then(response=>{
-      setInfo(response.data)
-    })
-    .catch(err=>alert(err))
-
-    axios.get(`${process.env.REACT_APP_API}/goalinfo`,{
-      headers:{
-        "Authorization":token
-      }
-    })
-    .then(response=>{
-      setGoal(response.data[0])
-    }).catch(err=>alert(err))
     
     axios.get(`${process.env.REACT_APP_API}/incomesum`,{
       headers:{
