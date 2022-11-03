@@ -116,6 +116,10 @@ exports.income=(req,res)=>{
                 return res.status(400).json({error:"Please enter your amount of money"})
                 break;
             }
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"This is not a number, please try again."})
+                break;
+            }
         }
 
         moneydata.create({id,amount,type,detail},(err,data)=>{
@@ -152,6 +156,10 @@ exports.outcome=(req,res)=>{
         switch(true){
             case !amount:{
                 return res.status(400).json({error:"Please enter your amount of money"})
+                break;
+            }
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"This is not a number, please try again."})
                 break;
             }
         }
@@ -283,6 +291,10 @@ exports.borrow=(req,res)=>{
                 return res.status(400).json({error:"Please enter your amount of money"})
                 break;
             }
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"Your amount of money is not a number, please try again."})
+                break;
+            }
             case !name:{
                 return res.status(400).json({error:"Please enter name of loaner"})
                 break;
@@ -320,6 +332,10 @@ exports.lend=(req,res)=>{
         switch(true){
             case !amount:{
                 return res.status(400).json({error:"Please enter your amount of money"})
+                break;
+            }
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"Your amount of money is not a number, please try again."})
                 break;
             }
             case !name:{
@@ -407,6 +423,12 @@ exports.myGoal=(req,res)=>{
     if(userinfo){
 
         var id = userinfo.userID
+        switch(true){
+            case isNaN(parseFloat(price)):{
+                return res.status(400).json({error:"Your amount of money is not a number, please try again."})
+                break;
+            }
+        }
         goaldata.findOneAndUpdate({id},{item,price,url}).exec((err,data)=>{
             if(data===null){
                 goaldata.create({id,item,price,url},(err,data)=>{
@@ -427,6 +449,12 @@ exports.addPiggy=(req,res)=>{
     if(userinfo){
 
         var id = userinfo.userID
+        switch(true){
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"Your amount of money is not a number, please try again."})
+                break;
+            }
+        }
         goaldata.find({id}).exec((err,data)=>{
             if(err) console.log(err)
             var balanceInt = parseInt(data[0].piggy)
@@ -449,6 +477,12 @@ exports.removePiggy=(req,res)=>{
     if(userinfo){
 
         var id = userinfo.userID
+        switch(true){
+            case isNaN(parseFloat(amount)):{
+                return res.status(400).json({error:"Your amount of money is not a number, please try again."})
+                break;
+            }
+        }
         goaldata.find({id}).exec((err,data)=>{
             if(err) console.log(err)
             var balanceInt = parseInt(data[0].piggy)
